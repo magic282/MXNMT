@@ -1,0 +1,920 @@
+C:\Anaconda3\python.exe D:/users/home/Projects/mxnmt/nmt/main.py
+20:05:35 INFO:root:Config:
+batch_size: 128
+beam_size: 12
+bleu_ref_number: 7
+bos_word: <s>
+bucket_stride: 10
+buckets: [(10, 10), (10, 20), (10, 30), (10, 40), (10, 50), (10, 60), (20, 10), (20, 20), (20, 30), (20, 40), (20, 50), (20, 60), (30, 10), (30, 20), (30, 30), (30, 40), (30, 50), (30, 60), (40, 10), (40, 20), (40, 30), (40, 40), (40, 50), (40, 60), (50, 10), (50, 20), (50, 30), (50, 40), (50, 50), (50, 60), (60, 10), (60, 20), (60, 30), (60, 40), (60, 50), (60, 60)]
+checkpoint_freq_batch: 1000
+checkpoint_name: D:\users\home\Projects\mxnmt\IWSLT\model\checkpoint_model
+data_root: D:\users\home\Projects\mxnmt\IWSLT
+dev_max_samples: 100000
+dev_output: D:\users\home\Projects\mxnmt\IWSLT\dev\dev.out
+dev_source: D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt
+dev_target: D:\users\home\Projects\mxnmt\IWSLT\invalid\invalid
+dropout: 0.5
+eos_word: </s>
+eval_per_x_batch: 400
+eval_start_epoch: 4
+greedy_batch_size: 32
+learning_rate: 1
+log_root: D:\users\home\Projects\mxnmt\IWSLT\log
+max_decode_len: 15
+model_root: D:\users\home\Projects\mxnmt\IWSLT\model
+model_save_freq: 1
+model_save_name: D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt
+model_to_load_number: 1
+model_to_load_prefix: D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt
+momentum: 0.1
+num_embed: 512
+num_epoch: 60
+num_hidden: 512
+num_lstm_layer: 1
+resume_model_number: 0
+resume_model_prefix: D:\users\home\Projects\mxnmt\IWSLT\model\checkpoint_model
+show_every_x_batch: 100
+source_root: D:\users\home\Projects\mxnmt
+source_vocab_path: D:\users\home\Projects\mxnmt\IWSLT\zh\zh.vocab.pkl
+special_words: {'<s>': 2, '</s>': 3, '<unk>': 1}
+target_vocab_path: D:\users\home\Projects\mxnmt\IWSLT\en\en.vocab.pkl
+test_device: gpu(0)
+test_gold: D:\users\home\Projects\mxnmt\IWSLT\test\IWSLT.test.txt
+test_output: D:\users\home\Projects\mxnmt\IWSLT\test\test.out
+test_source: D:\users\home\Projects\mxnmt\IWSLT\test\IWSLT.test.txt
+train_device: [gpu(0)]
+train_max_samples: 100000
+train_source: D:\users\home\Projects\mxnmt\IWSLT\zh\zh.txt
+train_target: D:\users\home\Projects\mxnmt\IWSLT\en\en.txt
+unk_word: <unk>
+use_batch_greedy_search: False
+use_beam_search: True
+use_resuming: True
+
+20:05:35 INFO:root:In train mode.
+20:05:36 INFO:root:source_vocab size: 9825
+20:05:36 INFO:root:target_vocab size: 9413
+Summary of dataset ==================
+Total: 81819 in 36 buckets
+bucket of (10, 10) : 49266 samples
+bucket of (10, 20) : 15701 samples
+bucket of (10, 30) : 288 samples
+bucket of (10, 40) : 5 samples
+bucket of (10, 50) : 0 samples
+bucket of (10, 60) : 0 samples
+bucket of (20, 10) : 1039 samples
+bucket of (20, 20) : 10825 samples
+bucket of (20, 30) : 3126 samples
+bucket of (20, 40) : 203 samples
+bucket of (20, 50) : 10 samples
+bucket of (20, 60) : 1 samples
+bucket of (30, 10) : 1 samples
+bucket of (30, 20) : 118 samples
+bucket of (30, 30) : 752 samples
+bucket of (30, 40) : 269 samples
+bucket of (30, 50) : 38 samples
+bucket of (30, 60) : 2 samples
+bucket of (40, 10) : 0 samples
+bucket of (40, 20) : 0 samples
+bucket of (40, 30) : 10 samples
+bucket of (40, 40) : 43 samples
+bucket of (40, 50) : 31 samples
+bucket of (40, 60) : 2 samples
+bucket of (50, 10) : 0 samples
+bucket of (50, 20) : 0 samples
+bucket of (50, 30) : 0 samples
+bucket of (50, 40) : 4 samples
+bucket of (50, 50) : 25 samples
+bucket of (50, 60) : 15 samples
+bucket of (60, 10) : 0 samples
+bucket of (60, 20) : 0 samples
+bucket of (60, 30) : 0 samples
+bucket of (60, 40) : 0 samples
+bucket of (60, 50) : 10 samples
+bucket of (60, 60) : 18 samples
+D:\users\home\Projects\mxnmt\nmt\masked_bucket_io.py:239: VisibleDeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+  bucket_plan = np.hstack([np.zeros(n, int) + i for i, n in enumerate(bucket_n_batches)])
+20:05:39 INFO:root:Try resuming from D:\users\home\Projects\mxnmt\IWSLT\model\checkpoint_model 0
+[20:05:39] D:\mxnet\dmlc-core\include\dmlc/logging.h:235: [20:05:39] D:\mxnet\dmlc-core\src\io\local_filesys.cc:154: Check failed: allow_null  LocalFileSystem: fail to open "D:\users\home\Projects\mxnmt\IWSLT\model\checkpoint_model-symbol.json"
+20:05:39 ERROR:root:Resume failed.
+20:05:40 INFO:root:Start training with [gpu(0)]
+20:06:24 INFO:root:Epoch[0] Batch [100]	Speed: 346.40 samples/sec	Train-Perplexity=677.456613
+20:07:02 INFO:root:Epoch[0] Batch [200]	Speed: 334.68 samples/sec	Train-Perplexity=127.235813
+20:07:40 INFO:root:Epoch[0] Batch [300]	Speed: 336.18 samples/sec	Train-Perplexity=87.583511
+20:08:21 INFO:root:Epoch[0] Batch [400]	Speed: 308.59 samples/sec	Train-Perplexity=72.805057
+Too early to check BLEU at epoch 0
+20:08:59 INFO:root:Epoch[0] Batch [500]	Speed: 345.62 samples/sec	Train-Perplexity=58.451281
+20:09:38 INFO:root:Epoch[0] Batch [600]	Speed: 324.52 samples/sec	Train-Perplexity=54.911271
+20:09:52 INFO:root:Epoch[0] Resetting Data Iterator
+20:09:52 INFO:root:Epoch[0] Time cost=245.259
+20:09:52 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0001.params"
+20:10:28 INFO:root:Epoch[1] Batch [100]	Speed: 357.79 samples/sec	Train-Perplexity=43.068291
+20:11:06 INFO:root:Epoch[1] Batch [200]	Speed: 335.12 samples/sec	Train-Perplexity=42.659636
+20:11:44 INFO:root:Epoch[1] Batch [300]	Speed: 335.83 samples/sec	Train-Perplexity=38.860670
+20:12:24 INFO:root:Epoch[1] Batch [400]	Speed: 319.99 samples/sec	Train-Perplexity=37.914928
+Too early to check BLEU at epoch 1
+20:13:01 INFO:root:Epoch[1] Batch [500]	Speed: 345.75 samples/sec	Train-Perplexity=33.331348
+20:13:41 INFO:root:Epoch[1] Batch [600]	Speed: 324.27 samples/sec	Train-Perplexity=33.298229
+20:13:55 INFO:root:Epoch[1] Resetting Data Iterator
+20:13:55 INFO:root:Epoch[1] Time cost=242.353
+20:13:55 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0002.params"
+20:14:31 INFO:root:Epoch[2] Batch [100]	Speed: 356.97 samples/sec	Train-Perplexity=27.835325
+20:15:09 INFO:root:Epoch[2] Batch [200]	Speed: 335.24 samples/sec	Train-Perplexity=28.387237
+20:15:48 INFO:root:Epoch[2] Batch [300]	Speed: 334.72 samples/sec	Train-Perplexity=26.452638
+20:16:28 INFO:root:Epoch[2] Batch [400]	Speed: 316.15 samples/sec	Train-Perplexity=26.782767
+Too early to check BLEU at epoch 2
+20:17:05 INFO:root:Epoch[2] Batch [500]	Speed: 345.44 samples/sec	Train-Perplexity=23.714569
+20:17:45 INFO:root:Epoch[2] Batch [600]	Speed: 324.77 samples/sec	Train-Perplexity=24.313119
+20:17:58 INFO:root:Epoch[2] Resetting Data Iterator
+20:17:58 INFO:root:Epoch[2] Time cost=243.027
+20:17:59 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0003.params"
+20:18:35 INFO:root:Epoch[3] Batch [100]	Speed: 357.69 samples/sec	Train-Perplexity=20.603173
+20:19:13 INFO:root:Epoch[3] Batch [200]	Speed: 335.12 samples/sec	Train-Perplexity=21.253643
+20:19:51 INFO:root:Epoch[3] Batch [300]	Speed: 335.51 samples/sec	Train-Perplexity=20.253162
+Too early to check BLEU at epoch 3
+20:20:31 INFO:root:Epoch[3] Batch [400]	Speed: 320.28 samples/sec	Train-Perplexity=20.852583
+20:21:08 INFO:root:Epoch[3] Batch [500]	Speed: 346.38 samples/sec	Train-Perplexity=18.429250
+20:21:48 INFO:root:Epoch[3] Batch [600]	Speed: 325.04 samples/sec	Train-Perplexity=19.102989
+20:22:01 INFO:root:Epoch[3] Resetting Data Iterator
+20:22:01 INFO:root:Epoch[3] Time cost=242.185
+20:22:02 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0004.params"
+20:22:38 INFO:root:Epoch[4] Batch [100]	Speed: 358.60 samples/sec	Train-Perplexity=16.546370
+20:23:16 INFO:root:Epoch[4] Batch [200]	Speed: 335.66 samples/sec	Train-Perplexity=17.048965
+20:23:54 INFO:root:Epoch[4] Batch [300]	Speed: 336.47 samples/sec	Train-Perplexity=16.390798
+20:24:34 INFO:root:Epoch[4] Batch [400]	Speed: 320.39 samples/sec	Train-Perplexity=17.157482
+20:24:34 INFO:root:Checking BLEU for epoch 4 batch 400
+C:\Anaconda3\lib\site-packages\mxnet-0.7.0-py3.5.egg\mxnet\ndarray.py:531: RuntimeWarning: copy an array to itself, is it intended?
+  RuntimeWarning)
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+20:26:39 INFO:root:b'1gram=65.61%  2gram=39.62%  3gram=27.79%  4gram=19.09%  \r\nBP = 0.9639\r\nBLEU = 0.3303\r\n'
+20:26:39 INFO:root:BLEU: 0.3303 @ epoch 4 batch 400
+20:26:39 INFO:root:Current BLEU: 0.3303 > prev best -1.0 in epoch -1
+20:26:39 INFO:root:Saving...
+20:26:39 INFO:root:Saved checkpoint to "best_bleu-0005.params"
+20:27:16 INFO:root:Epoch[4] Batch [500]	Speed: 78.94 samples/sec	Train-Perplexity=15.243541
+20:27:55 INFO:root:Epoch[4] Batch [600]	Speed: 325.14 samples/sec	Train-Perplexity=15.828474
+20:28:09 INFO:root:Epoch[4] Resetting Data Iterator
+20:28:09 INFO:root:Epoch[4] Time cost=367.106
+20:28:10 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0005.params"
+20:28:45 INFO:root:Epoch[5] Batch [100]	Speed: 357.54 samples/sec	Train-Perplexity=13.908643
+20:29:24 INFO:root:Epoch[5] Batch [200]	Speed: 335.71 samples/sec	Train-Perplexity=14.388900
+20:30:02 INFO:root:Epoch[5] Batch [300]	Speed: 336.51 samples/sec	Train-Perplexity=13.905681
+20:30:42 INFO:root:Epoch[5] Batch [400]	Speed: 320.08 samples/sec	Train-Perplexity=14.677042
+20:30:42 INFO:root:Checking BLEU for epoch 5 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+20:32:45 INFO:root:b'1gram=68.54%  2gram=42.38%  3gram=29.82%  4gram=21.34%  \r\nBP = 0.9224\r\nBLEU = 0.3401\r\n'
+20:32:45 INFO:root:BLEU: 0.3401 @ epoch 5 batch 400
+20:32:45 INFO:root:Current BLEU: 0.3401 > prev best 0.3303 in epoch 4
+20:32:45 INFO:root:Saving...
+20:32:45 INFO:root:Saved checkpoint to "best_bleu-0006.params"
+20:33:22 INFO:root:Epoch[5] Batch [500]	Speed: 79.94 samples/sec	Train-Perplexity=12.956247
+20:34:01 INFO:root:Epoch[5] Batch [600]	Speed: 323.94 samples/sec	Train-Perplexity=13.587172
+20:34:15 INFO:root:Epoch[5] Resetting Data Iterator
+20:34:15 INFO:root:Epoch[5] Time cost=365.382
+20:34:16 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0006.params"
+20:34:52 INFO:root:Epoch[6] Batch [100]	Speed: 357.26 samples/sec	Train-Perplexity=11.914505
+20:35:30 INFO:root:Epoch[6] Batch [200]	Speed: 333.97 samples/sec	Train-Perplexity=12.512574
+20:36:08 INFO:root:Epoch[6] Batch [300]	Speed: 335.77 samples/sec	Train-Perplexity=12.020077
+20:36:48 INFO:root:Epoch[6] Batch [400]	Speed: 319.38 samples/sec	Train-Perplexity=12.936626
+20:36:48 INFO:root:Checking BLEU for epoch 6 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+20:38:53 INFO:root:b'1gram=68.32%  2gram=42.65%  3gram=29.93%  4gram=20.46%  \r\nBP = 0.9666\r\nBLEU = 0.3533\r\n'
+20:38:53 INFO:root:BLEU: 0.3533 @ epoch 6 batch 400
+20:38:53 INFO:root:Current BLEU: 0.3533 > prev best 0.3401 in epoch 5
+20:38:53 INFO:root:Saving...
+20:38:53 INFO:root:Saved checkpoint to "best_bleu-0007.params"
+20:39:30 INFO:root:Epoch[6] Batch [500]	Speed: 79.16 samples/sec	Train-Perplexity=11.328022
+20:40:09 INFO:root:Epoch[6] Batch [600]	Speed: 324.32 samples/sec	Train-Perplexity=11.931129
+20:40:23 INFO:root:Epoch[6] Resetting Data Iterator
+20:40:23 INFO:root:Epoch[6] Time cost=367.294
+20:40:24 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0007.params"
+20:40:59 INFO:root:Epoch[7] Batch [100]	Speed: 357.71 samples/sec	Train-Perplexity=10.575803
+20:41:38 INFO:root:Epoch[7] Batch [200]	Speed: 334.78 samples/sec	Train-Perplexity=11.017215
+20:42:16 INFO:root:Epoch[7] Batch [300]	Speed: 336.01 samples/sec	Train-Perplexity=10.738582
+20:42:56 INFO:root:Epoch[7] Batch [400]	Speed: 319.64 samples/sec	Train-Perplexity=11.594227
+20:42:56 INFO:root:Checking BLEU for epoch 7 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+20:44:57 INFO:root:b'1gram=71.05%  2gram=45.56%  3gram=33.06%  4gram=22.97%  \r\nBP = 0.9349\r\nBLEU = 0.3702\r\n'
+20:44:57 INFO:root:BLEU: 0.3702 @ epoch 7 batch 400
+20:44:57 INFO:root:Current BLEU: 0.3702 > prev best 0.3533 in epoch 6
+20:44:57 INFO:root:Saving...
+20:44:58 INFO:root:Saved checkpoint to "best_bleu-0008.params"
+20:45:35 INFO:root:Epoch[7] Batch [500]	Speed: 80.60 samples/sec	Train-Perplexity=10.112880
+20:46:14 INFO:root:Epoch[7] Batch [600]	Speed: 324.06 samples/sec	Train-Perplexity=10.736643
+20:46:28 INFO:root:Epoch[7] Resetting Data Iterator
+20:46:28 INFO:root:Epoch[7] Time cost=364.244
+20:46:28 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0008.params"
+20:47:04 INFO:root:Epoch[8] Batch [100]	Speed: 357.45 samples/sec	Train-Perplexity=9.522396
+20:47:43 INFO:root:Epoch[8] Batch [200]	Speed: 334.64 samples/sec	Train-Perplexity=9.972395
+20:48:21 INFO:root:Epoch[8] Batch [300]	Speed: 329.93 samples/sec	Train-Perplexity=9.700864
+20:49:01 INFO:root:Epoch[8] Batch [400]	Speed: 319.50 samples/sec	Train-Perplexity=10.634506
+20:49:01 INFO:root:Checking BLEU for epoch 8 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+20:51:06 INFO:root:b'1gram=70.02%  2gram=44.80%  3gram=32.07%  4gram=22.38%  \r\nBP = 0.9731\r\nBLEU = 0.3769\r\n'
+20:51:06 INFO:root:BLEU: 0.3769 @ epoch 8 batch 400
+20:51:06 INFO:root:Current BLEU: 0.3769 > prev best 0.3702 in epoch 7
+20:51:06 INFO:root:Saving...
+20:51:06 INFO:root:Saved checkpoint to "best_bleu-0009.params"
+20:51:43 INFO:root:Epoch[8] Batch [500]	Speed: 79.21 samples/sec	Train-Perplexity=9.170730
+20:52:23 INFO:root:Epoch[8] Batch [600]	Speed: 323.98 samples/sec	Train-Perplexity=9.790732
+20:52:36 INFO:root:Epoch[8] Resetting Data Iterator
+20:52:36 INFO:root:Epoch[8] Time cost=367.819
+20:52:37 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0009.params"
+20:53:13 INFO:root:Epoch[9] Batch [100]	Speed: 357.66 samples/sec	Train-Perplexity=8.732078
+20:53:51 INFO:root:Epoch[9] Batch [200]	Speed: 335.10 samples/sec	Train-Perplexity=9.055381
+20:54:29 INFO:root:Epoch[9] Batch [300]	Speed: 336.43 samples/sec	Train-Perplexity=8.890672
+20:55:09 INFO:root:Epoch[9] Batch [400]	Speed: 320.36 samples/sec	Train-Perplexity=9.763253
+20:55:09 INFO:root:Checking BLEU for epoch 9 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+20:57:13 INFO:root:b'1gram=71.28%  2gram=46.02%  3gram=33.44%  4gram=23.75%  \r\nBP = 0.9666\r\nBLEU = 0.3883\r\n'
+20:57:13 INFO:root:BLEU: 0.3883 @ epoch 9 batch 400
+20:57:13 INFO:root:Current BLEU: 0.3883 > prev best 0.3769 in epoch 8
+20:57:13 INFO:root:Saving...
+20:57:13 INFO:root:Saved checkpoint to "best_bleu-0010.params"
+20:57:50 INFO:root:Epoch[9] Batch [500]	Speed: 79.62 samples/sec	Train-Perplexity=8.448180
+20:58:29 INFO:root:Epoch[9] Batch [600]	Speed: 324.77 samples/sec	Train-Perplexity=8.975397
+20:58:43 INFO:root:Epoch[9] Resetting Data Iterator
+20:58:43 INFO:root:Epoch[9] Time cost=366.024
+20:58:44 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0010.params"
+20:59:20 INFO:root:Epoch[10] Batch [100]	Speed: 357.45 samples/sec	Train-Perplexity=8.093092
+20:59:58 INFO:root:Epoch[10] Batch [200]	Speed: 334.54 samples/sec	Train-Perplexity=8.395097
+21:00:36 INFO:root:Epoch[10] Batch [300]	Speed: 335.94 samples/sec	Train-Perplexity=8.181741
+21:01:16 INFO:root:Epoch[10] Batch [400]	Speed: 319.47 samples/sec	Train-Perplexity=9.018671
+21:01:16 INFO:root:Checking BLEU for epoch 10 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [239 ms].
+21:03:19 INFO:root:b'1gram=71.81%  2gram=47.26%  3gram=34.34%  4gram=24.33%  \r\nBP = 0.9623\r\nBLEU = 0.3949\r\n'
+21:03:19 INFO:root:BLEU: 0.3949 @ epoch 10 batch 400
+21:03:19 INFO:root:Current BLEU: 0.3949 > prev best 0.3883 in epoch 9
+21:03:19 INFO:root:Saving...
+21:03:20 INFO:root:Saved checkpoint to "best_bleu-0011.params"
+21:03:56 INFO:root:Epoch[10] Batch [500]	Speed: 79.78 samples/sec	Train-Perplexity=7.841984
+21:04:37 INFO:root:Epoch[10] Batch [600]	Speed: 318.43 samples/sec	Train-Perplexity=8.340074
+21:04:50 INFO:root:Epoch[10] Resetting Data Iterator
+21:04:50 INFO:root:Epoch[10] Time cost=366.643
+21:04:51 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0011.params"
+21:05:27 INFO:root:Epoch[11] Batch [100]	Speed: 357.71 samples/sec	Train-Perplexity=7.543190
+21:06:05 INFO:root:Epoch[11] Batch [200]	Speed: 335.21 samples/sec	Train-Perplexity=7.860304
+21:06:43 INFO:root:Epoch[11] Batch [300]	Speed: 335.82 samples/sec	Train-Perplexity=7.613764
+21:07:23 INFO:root:Epoch[11] Batch [400]	Speed: 318.66 samples/sec	Train-Perplexity=8.446283
+21:07:23 INFO:root:Checking BLEU for epoch 11 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+21:09:24 INFO:root:b'1gram=71.83%  2gram=46.38%  3gram=33.56%  4gram=23.98%  \r\nBP = 0.9468\r\nBLEU = 0.3831\r\n'
+21:09:24 INFO:root:BLEU: 0.3831 @ epoch 11 batch 400
+21:10:01 INFO:root:Epoch[11] Batch [500]	Speed: 81.12 samples/sec	Train-Perplexity=7.340801
+21:10:41 INFO:root:Epoch[11] Batch [600]	Speed: 324.20 samples/sec	Train-Perplexity=7.796961
+21:10:54 INFO:root:Epoch[11] Resetting Data Iterator
+21:10:54 INFO:root:Epoch[11] Time cost=363.285
+21:10:55 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0012.params"
+21:11:31 INFO:root:Epoch[12] Batch [100]	Speed: 358.01 samples/sec	Train-Perplexity=7.088733
+21:12:09 INFO:root:Epoch[12] Batch [200]	Speed: 334.66 samples/sec	Train-Perplexity=7.353227
+21:12:47 INFO:root:Epoch[12] Batch [300]	Speed: 335.80 samples/sec	Train-Perplexity=7.147846
+21:13:27 INFO:root:Epoch[12] Batch [400]	Speed: 319.75 samples/sec	Train-Perplexity=8.068194
+21:13:27 INFO:root:Checking BLEU for epoch 12 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+21:15:30 INFO:root:b'1gram=72.21%  2gram=47.82%  3gram=35.17%  4gram=25.34%  \r\nBP = 0.9582\r\nBLEU = 0.4014\r\n'
+21:15:30 INFO:root:BLEU: 0.4014 @ epoch 12 batch 400
+21:15:30 INFO:root:Current BLEU: 0.4014 > prev best 0.3949 in epoch 10
+21:15:30 INFO:root:Saving...
+21:15:30 INFO:root:Saved checkpoint to "best_bleu-0013.params"
+21:16:07 INFO:root:Epoch[12] Batch [500]	Speed: 80.00 samples/sec	Train-Perplexity=6.901814
+21:16:47 INFO:root:Epoch[12] Batch [600]	Speed: 323.91 samples/sec	Train-Perplexity=7.349590
+21:17:00 INFO:root:Epoch[12] Resetting Data Iterator
+21:17:00 INFO:root:Epoch[12] Time cost=365.473
+21:17:01 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0013.params"
+21:17:37 INFO:root:Epoch[13] Batch [100]	Speed: 357.26 samples/sec	Train-Perplexity=6.668300
+21:18:15 INFO:root:Epoch[13] Batch [200]	Speed: 334.11 samples/sec	Train-Perplexity=6.903907
+21:18:53 INFO:root:Epoch[13] Batch [300]	Speed: 334.95 samples/sec	Train-Perplexity=6.779002
+21:19:34 INFO:root:Epoch[13] Batch [400]	Speed: 319.28 samples/sec	Train-Perplexity=7.538552
+21:19:34 INFO:root:Checking BLEU for epoch 13 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+21:21:35 INFO:root:b'1gram=72.78%  2gram=48.05%  3gram=35.43%  4gram=25.77%  \r\nBP = 0.9380\r\nBLEU = 0.3965\r\n'
+21:21:35 INFO:root:BLEU: 0.3965 @ epoch 13 batch 400
+21:22:12 INFO:root:Epoch[13] Batch [500]	Speed: 80.77 samples/sec	Train-Perplexity=6.545751
+21:22:52 INFO:root:Epoch[13] Batch [600]	Speed: 323.67 samples/sec	Train-Perplexity=6.999107
+21:23:05 INFO:root:Epoch[13] Resetting Data Iterator
+21:23:05 INFO:root:Epoch[13] Time cost=364.298
+21:23:06 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0014.params"
+21:23:42 INFO:root:Epoch[14] Batch [100]	Speed: 357.32 samples/sec	Train-Perplexity=6.375863
+21:24:20 INFO:root:Epoch[14] Batch [200]	Speed: 334.81 samples/sec	Train-Perplexity=6.594310
+21:24:58 INFO:root:Epoch[14] Batch [300]	Speed: 336.03 samples/sec	Train-Perplexity=6.421297
+21:25:38 INFO:root:Epoch[14] Batch [400]	Speed: 319.55 samples/sec	Train-Perplexity=7.225313
+21:25:38 INFO:root:Checking BLEU for epoch 14 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+21:27:41 INFO:root:b'1gram=71.98%  2gram=48.20%  3gram=36.14%  4gram=26.24%  \r\nBP = 0.9393\r\nBLEU = 0.4001\r\n'
+21:27:41 INFO:root:BLEU: 0.4001 @ epoch 14 batch 400
+21:28:18 INFO:root:Epoch[14] Batch [500]	Speed: 80.35 samples/sec	Train-Perplexity=6.232595
+21:28:57 INFO:root:Epoch[14] Batch [600]	Speed: 324.25 samples/sec	Train-Perplexity=6.626467
+21:29:11 INFO:root:Epoch[14] Resetting Data Iterator
+21:29:11 INFO:root:Epoch[14] Time cost=364.748
+21:29:11 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0015.params"
+21:29:47 INFO:root:Epoch[15] Batch [100]	Speed: 358.29 samples/sec	Train-Perplexity=6.163365
+21:30:25 INFO:root:Epoch[15] Batch [200]	Speed: 335.27 samples/sec	Train-Perplexity=6.239482
+21:31:03 INFO:root:Epoch[15] Batch [300]	Speed: 336.43 samples/sec	Train-Perplexity=6.124430
+21:31:44 INFO:root:Epoch[15] Batch [400]	Speed: 318.66 samples/sec	Train-Perplexity=6.912867
+21:31:44 INFO:root:Checking BLEU for epoch 15 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+21:33:47 INFO:root:b'1gram=72.72%  2gram=49.09%  3gram=36.69%  4gram=26.89%  \r\nBP = 0.9610\r\nBLEU = 0.4163\r\n'
+21:33:47 INFO:root:BLEU: 0.4163 @ epoch 15 batch 400
+21:33:47 INFO:root:Current BLEU: 0.4163 > prev best 0.4014 in epoch 12
+21:33:47 INFO:root:Saving...
+21:33:47 INFO:root:Saved checkpoint to "best_bleu-0016.params"
+21:34:24 INFO:root:Epoch[15] Batch [500]	Speed: 79.87 samples/sec	Train-Perplexity=5.964563
+21:35:03 INFO:root:Epoch[15] Batch [600]	Speed: 324.65 samples/sec	Train-Perplexity=6.364883
+21:35:17 INFO:root:Epoch[15] Resetting Data Iterator
+21:35:17 INFO:root:Epoch[15] Time cost=365.577
+21:35:18 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0016.params"
+21:35:53 INFO:root:Epoch[16] Batch [100]	Speed: 357.86 samples/sec	Train-Perplexity=5.805708
+21:36:32 INFO:root:Epoch[16] Batch [200]	Speed: 334.97 samples/sec	Train-Perplexity=5.979251
+21:37:11 INFO:root:Epoch[16] Batch [300]	Speed: 327.06 samples/sec	Train-Perplexity=5.853375
+21:37:51 INFO:root:Epoch[16] Batch [400]	Speed: 319.71 samples/sec	Train-Perplexity=6.650697
+21:37:51 INFO:root:Checking BLEU for epoch 16 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+21:39:56 INFO:root:b'1gram=71.67%  2gram=46.89%  3gram=34.49%  4gram=24.43%  \r\nBP = 0.9840\r\nBLEU = 0.4036\r\n'
+21:39:56 INFO:root:BLEU: 0.4036 @ epoch 16 batch 400
+21:40:33 INFO:root:Epoch[16] Batch [500]	Speed: 79.14 samples/sec	Train-Perplexity=5.721799
+21:41:12 INFO:root:Epoch[16] Batch [600]	Speed: 324.26 samples/sec	Train-Perplexity=6.081054
+21:41:26 INFO:root:Epoch[16] Resetting Data Iterator
+21:41:26 INFO:root:Epoch[16] Time cost=368.138
+21:41:26 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0017.params"
+21:42:02 INFO:root:Epoch[17] Batch [100]	Speed: 357.51 samples/sec	Train-Perplexity=5.597813
+21:42:41 INFO:root:Epoch[17] Batch [200]	Speed: 334.83 samples/sec	Train-Perplexity=5.752815
+21:43:19 INFO:root:Epoch[17] Batch [300]	Speed: 335.82 samples/sec	Train-Perplexity=5.613985
+21:43:59 INFO:root:Epoch[17] Batch [400]	Speed: 319.40 samples/sec	Train-Perplexity=6.407925
+21:43:59 INFO:root:Checking BLEU for epoch 17 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+21:46:01 INFO:root:b'1gram=72.71%  2gram=48.73%  3gram=36.33%  4gram=26.43%  \r\nBP = 0.9536\r\nBLEU = 0.4095\r\n'
+21:46:01 INFO:root:BLEU: 0.4095 @ epoch 17 batch 400
+21:46:38 INFO:root:Epoch[17] Batch [500]	Speed: 80.48 samples/sec	Train-Perplexity=5.507343
+21:47:17 INFO:root:Epoch[17] Batch [600]	Speed: 324.23 samples/sec	Train-Perplexity=5.856936
+21:47:31 INFO:root:Epoch[17] Resetting Data Iterator
+21:47:31 INFO:root:Epoch[17] Time cost=364.515
+21:47:32 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0018.params"
+21:48:07 INFO:root:Epoch[18] Batch [100]	Speed: 357.96 samples/sec	Train-Perplexity=5.517313
+21:48:46 INFO:root:Epoch[18] Batch [200]	Speed: 335.06 samples/sec	Train-Perplexity=5.540820
+21:49:24 INFO:root:Epoch[18] Batch [300]	Speed: 335.82 samples/sec	Train-Perplexity=5.418239
+21:50:04 INFO:root:Epoch[18] Batch [400]	Speed: 319.89 samples/sec	Train-Perplexity=6.152498
+21:50:04 INFO:root:Checking BLEU for epoch 18 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [243 ms].
+21:52:06 INFO:root:b'1gram=72.94%  2gram=48.72%  3gram=35.73%  4gram=24.87%  \r\nBP = 0.9593\r\nBLEU = 0.4044\r\n'
+21:52:06 INFO:root:BLEU: 0.4044 @ epoch 18 batch 400
+21:52:43 INFO:root:Epoch[18] Batch [500]	Speed: 80.39 samples/sec	Train-Perplexity=5.301571
+21:53:23 INFO:root:Epoch[18] Batch [600]	Speed: 319.32 samples/sec	Train-Perplexity=5.640023
+21:53:37 INFO:root:Epoch[18] Resetting Data Iterator
+21:53:37 INFO:root:Epoch[18] Time cost=365.165
+21:53:37 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0019.params"
+21:54:13 INFO:root:Epoch[19] Batch [100]	Speed: 357.84 samples/sec	Train-Perplexity=5.218759
+21:54:52 INFO:root:Epoch[19] Batch [200]	Speed: 334.61 samples/sec	Train-Perplexity=5.312471
+21:55:30 INFO:root:Epoch[19] Batch [300]	Speed: 335.46 samples/sec	Train-Perplexity=5.240229
+21:56:10 INFO:root:Epoch[19] Batch [400]	Speed: 319.12 samples/sec	Train-Perplexity=5.939835
+21:56:10 INFO:root:Checking BLEU for epoch 19 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+21:58:14 INFO:root:b'1gram=71.92%  2gram=48.46%  3gram=35.67%  4gram=25.13%  \r\nBP = 0.9816\r\nBLEU = 0.4127\r\n'
+21:58:14 INFO:root:BLEU: 0.4127 @ epoch 19 batch 400
+21:58:51 INFO:root:Epoch[19] Batch [500]	Speed: 79.56 samples/sec	Train-Perplexity=5.138349
+21:59:30 INFO:root:Epoch[19] Batch [600]	Speed: 324.29 samples/sec	Train-Perplexity=5.474285
+21:59:44 INFO:root:Epoch[19] Resetting Data Iterator
+21:59:44 INFO:root:Epoch[19] Time cost=366.446
+21:59:44 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0020.params"
+22:00:20 INFO:root:Epoch[20] Batch [100]	Speed: 357.59 samples/sec	Train-Perplexity=5.156831
+22:00:59 INFO:root:Epoch[20] Batch [200]	Speed: 335.02 samples/sec	Train-Perplexity=5.152715
+22:01:37 INFO:root:Epoch[20] Batch [300]	Speed: 335.62 samples/sec	Train-Perplexity=5.069593
+22:02:17 INFO:root:Epoch[20] Batch [400]	Speed: 319.26 samples/sec	Train-Perplexity=5.734110
+22:02:17 INFO:root:Checking BLEU for epoch 20 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+22:04:20 INFO:root:b'1gram=72.28%  2gram=48.18%  3gram=36.24%  4gram=26.46%  \r\nBP = 0.9763\r\nBLEU = 0.4173\r\n'
+22:04:20 INFO:root:BLEU: 0.4173 @ epoch 20 batch 400
+22:04:20 INFO:root:Current BLEU: 0.4173 > prev best 0.4163 in epoch 15
+22:04:20 INFO:root:Saving...
+22:04:21 INFO:root:Saved checkpoint to "best_bleu-0021.params"
+22:04:57 INFO:root:Epoch[20] Batch [500]	Speed: 79.79 samples/sec	Train-Perplexity=4.956359
+22:05:37 INFO:root:Epoch[20] Batch [600]	Speed: 324.48 samples/sec	Train-Perplexity=5.288804
+22:05:50 INFO:root:Epoch[20] Resetting Data Iterator
+22:05:50 INFO:root:Epoch[20] Time cost=365.873
+22:05:51 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0021.params"
+22:06:27 INFO:root:Epoch[21] Batch [100]	Speed: 358.00 samples/sec	Train-Perplexity=4.901484
+22:07:05 INFO:root:Epoch[21] Batch [200]	Speed: 334.84 samples/sec	Train-Perplexity=5.006587
+22:07:43 INFO:root:Epoch[21] Batch [300]	Speed: 336.02 samples/sec	Train-Perplexity=4.877228
+22:08:23 INFO:root:Epoch[21] Batch [400]	Speed: 319.59 samples/sec	Train-Perplexity=5.617798
+22:08:23 INFO:root:Checking BLEU for epoch 21 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+22:10:28 INFO:root:b'1gram=71.66%  2gram=47.92%  3gram=35.61%  4gram=25.55%  \r\nBP = 0.9948\r\nBLEU = 0.4183\r\n'
+22:10:28 INFO:root:BLEU: 0.4183 @ epoch 21 batch 400
+22:10:28 INFO:root:Current BLEU: 0.4183 > prev best 0.4173 in epoch 20
+22:10:28 INFO:root:Saving...
+22:10:28 INFO:root:Saved checkpoint to "best_bleu-0022.params"
+22:11:05 INFO:root:Epoch[21] Batch [500]	Speed: 79.31 samples/sec	Train-Perplexity=4.851527
+22:11:44 INFO:root:Epoch[21] Batch [600]	Speed: 324.12 samples/sec	Train-Perplexity=5.100939
+22:11:58 INFO:root:Epoch[21] Resetting Data Iterator
+22:11:58 INFO:root:Epoch[21] Time cost=366.776
+22:11:58 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0022.params"
+22:12:34 INFO:root:Epoch[22] Batch [100]	Speed: 357.98 samples/sec	Train-Perplexity=4.722476
+22:13:12 INFO:root:Epoch[22] Batch [200]	Speed: 335.27 samples/sec	Train-Perplexity=4.857207
+22:13:51 INFO:root:Epoch[22] Batch [300]	Speed: 336.11 samples/sec	Train-Perplexity=4.766189
+22:14:31 INFO:root:Epoch[22] Batch [400]	Speed: 320.01 samples/sec	Train-Perplexity=5.428668
+22:14:31 INFO:root:Checking BLEU for epoch 22 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [242 ms].
+22:16:34 INFO:root:b'1gram=72.78%  2gram=48.23%  3gram=35.50%  4gram=25.64%  \r\nBP = 0.9771\r\nBLEU = 0.4131\r\n'
+22:16:34 INFO:root:BLEU: 0.4131 @ epoch 22 batch 400
+22:17:11 INFO:root:Epoch[22] Batch [500]	Speed: 79.83 samples/sec	Train-Perplexity=4.681073
+22:17:50 INFO:root:Epoch[22] Batch [600]	Speed: 324.54 samples/sec	Train-Perplexity=4.956886
+22:18:04 INFO:root:Epoch[22] Resetting Data Iterator
+22:18:04 INFO:root:Epoch[22] Time cost=365.562
+22:18:05 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0023.params"
+22:18:41 INFO:root:Epoch[23] Batch [100]	Speed: 358.29 samples/sec	Train-Perplexity=4.682423
+22:19:19 INFO:root:Epoch[23] Batch [200]	Speed: 335.45 samples/sec	Train-Perplexity=4.707169
+22:19:57 INFO:root:Epoch[23] Batch [300]	Speed: 336.35 samples/sec	Train-Perplexity=4.628967
+22:20:37 INFO:root:Epoch[23] Batch [400]	Speed: 319.81 samples/sec	Train-Perplexity=5.250182
+22:20:37 INFO:root:Checking BLEU for epoch 23 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+22:22:43 INFO:root:b'1gram=70.01%  2gram=46.34%  3gram=34.48%  4gram=24.87%  \r\nBP = 1.0000\r\nBLEU = 0.4084\r\n'
+22:22:43 INFO:root:BLEU: 0.4084 @ epoch 23 batch 400
+22:23:19 INFO:root:Epoch[23] Batch [500]	Speed: 78.69 samples/sec	Train-Perplexity=4.552618
+22:23:59 INFO:root:Epoch[23] Batch [600]	Speed: 324.72 samples/sec	Train-Perplexity=4.859983
+22:24:12 INFO:root:Epoch[23] Resetting Data Iterator
+22:24:12 INFO:root:Epoch[23] Time cost=367.811
+22:24:13 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0024.params"
+22:24:49 INFO:root:Epoch[24] Batch [100]	Speed: 357.62 samples/sec	Train-Perplexity=4.552113
+22:25:28 INFO:root:Epoch[24] Batch [200]	Speed: 328.03 samples/sec	Train-Perplexity=4.613325
+22:26:06 INFO:root:Epoch[24] Batch [300]	Speed: 335.90 samples/sec	Train-Perplexity=4.530597
+22:26:46 INFO:root:Epoch[24] Batch [400]	Speed: 320.08 samples/sec	Train-Perplexity=5.147030
+22:26:46 INFO:root:Checking BLEU for epoch 24 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+22:28:49 INFO:root:b'1gram=71.94%  2gram=48.40%  3gram=36.03%  4gram=26.64%  \r\nBP = 0.9717\r\nBLEU = 0.4155\r\n'
+22:28:49 INFO:root:BLEU: 0.4155 @ epoch 24 batch 400
+22:29:26 INFO:root:Epoch[24] Batch [500]	Speed: 80.22 samples/sec	Train-Perplexity=4.456267
+22:30:05 INFO:root:Epoch[24] Batch [600]	Speed: 324.49 samples/sec	Train-Perplexity=4.723113
+22:30:19 INFO:root:Epoch[24] Resetting Data Iterator
+22:30:19 INFO:root:Epoch[24] Time cost=365.690
+22:30:19 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0025.params"
+22:30:55 INFO:root:Epoch[25] Batch [100]	Speed: 357.99 samples/sec	Train-Perplexity=4.392298
+22:31:34 INFO:root:Epoch[25] Batch [200]	Speed: 335.29 samples/sec	Train-Perplexity=4.485758
+22:32:12 INFO:root:Epoch[25] Batch [300]	Speed: 336.13 samples/sec	Train-Perplexity=4.399285
+22:32:52 INFO:root:Epoch[25] Batch [400]	Speed: 320.07 samples/sec	Train-Perplexity=5.018728
+22:32:52 INFO:root:Checking BLEU for epoch 25 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+22:34:56 INFO:root:b'1gram=72.33%  2gram=48.85%  3gram=36.39%  4gram=26.22%  \r\nBP = 0.9914\r\nBLEU = 0.4248\r\n'
+22:34:56 INFO:root:BLEU: 0.4248 @ epoch 25 batch 400
+22:34:56 INFO:root:Current BLEU: 0.4248 > prev best 0.4183 in epoch 21
+22:34:56 INFO:root:Saving...
+22:34:57 INFO:root:Saved checkpoint to "best_bleu-0026.params"
+22:35:33 INFO:root:Epoch[25] Batch [500]	Speed: 79.07 samples/sec	Train-Perplexity=4.335405
+22:36:13 INFO:root:Epoch[25] Batch [600]	Speed: 324.77 samples/sec	Train-Perplexity=4.627439
+22:36:27 INFO:root:Epoch[25] Resetting Data Iterator
+22:36:27 INFO:root:Epoch[25] Time cost=367.088
+22:36:27 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0026.params"
+22:37:03 INFO:root:Epoch[26] Batch [100]	Speed: 357.85 samples/sec	Train-Perplexity=4.306752
+22:37:41 INFO:root:Epoch[26] Batch [200]	Speed: 334.62 samples/sec	Train-Perplexity=4.379418
+22:38:19 INFO:root:Epoch[26] Batch [300]	Speed: 335.97 samples/sec	Train-Perplexity=4.283302
+22:38:59 INFO:root:Epoch[26] Batch [400]	Speed: 319.95 samples/sec	Train-Perplexity=4.912712
+22:38:59 INFO:root:Checking BLEU for epoch 26 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [243 ms].
+22:41:02 INFO:root:b'1gram=73.43%  2gram=49.63%  3gram=37.07%  4gram=27.09%  \r\nBP = 0.9612\r\nBLEU = 0.4204\r\n'
+22:41:02 INFO:root:BLEU: 0.4204 @ epoch 26 batch 400
+22:41:40 INFO:root:Epoch[26] Batch [500]	Speed: 79.92 samples/sec	Train-Perplexity=4.257015
+22:42:19 INFO:root:Epoch[26] Batch [600]	Speed: 324.30 samples/sec	Train-Perplexity=4.502108
+22:42:33 INFO:root:Epoch[26] Resetting Data Iterator
+22:42:33 INFO:root:Epoch[26] Time cost=365.570
+22:42:33 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0027.params"
+22:43:09 INFO:root:Epoch[27] Batch [100]	Speed: 357.83 samples/sec	Train-Perplexity=4.244413
+22:43:48 INFO:root:Epoch[27] Batch [200]	Speed: 335.25 samples/sec	Train-Perplexity=4.262056
+22:44:26 INFO:root:Epoch[27] Batch [300]	Speed: 336.12 samples/sec	Train-Perplexity=4.184889
+22:45:06 INFO:root:Epoch[27] Batch [400]	Speed: 319.83 samples/sec	Train-Perplexity=4.801407
+22:45:06 INFO:root:Checking BLEU for epoch 27 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [239 ms].
+22:47:08 INFO:root:b'1gram=73.75%  2gram=49.58%  3gram=37.25%  4gram=27.27%  \r\nBP = 0.9561\r\nBLEU = 0.4197\r\n'
+22:47:08 INFO:root:BLEU: 0.4197 @ epoch 27 batch 400
+22:47:44 INFO:root:Epoch[27] Batch [500]	Speed: 80.66 samples/sec	Train-Perplexity=4.152310
+22:48:24 INFO:root:Epoch[27] Batch [600]	Speed: 324.11 samples/sec	Train-Perplexity=4.398443
+22:48:37 INFO:root:Epoch[27] Resetting Data Iterator
+22:48:37 INFO:root:Epoch[27] Time cost=364.017
+22:48:38 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0028.params"
+22:49:14 INFO:root:Epoch[28] Batch [100]	Speed: 357.90 samples/sec	Train-Perplexity=4.110479
+22:49:52 INFO:root:Epoch[28] Batch [200]	Speed: 334.73 samples/sec	Train-Perplexity=4.186066
+22:50:30 INFO:root:Epoch[28] Batch [300]	Speed: 336.05 samples/sec	Train-Perplexity=4.109250
+22:51:10 INFO:root:Epoch[28] Batch [400]	Speed: 319.06 samples/sec	Train-Perplexity=4.731491
+22:51:10 INFO:root:Checking BLEU for epoch 28 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [244 ms].
+22:53:14 INFO:root:b'1gram=73.15%  2gram=49.07%  3gram=36.82%  4gram=26.62%  \r\nBP = 0.9701\r\nBLEU = 0.4202\r\n'
+22:53:14 INFO:root:BLEU: 0.4202 @ epoch 28 batch 400
+22:53:51 INFO:root:Epoch[28] Batch [500]	Speed: 79.84 samples/sec	Train-Perplexity=4.068351
+22:54:30 INFO:root:Epoch[28] Batch [600]	Speed: 324.61 samples/sec	Train-Perplexity=4.302435
+22:54:44 INFO:root:Epoch[28] Resetting Data Iterator
+22:54:44 INFO:root:Epoch[28] Time cost=365.732
+22:54:45 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0029.params"
+22:55:20 INFO:root:Epoch[29] Batch [100]	Speed: 357.71 samples/sec	Train-Perplexity=4.101044
+22:55:59 INFO:root:Epoch[29] Batch [200]	Speed: 335.13 samples/sec	Train-Perplexity=4.092799
+22:56:37 INFO:root:Epoch[29] Batch [300]	Speed: 336.05 samples/sec	Train-Perplexity=4.027847
+22:57:17 INFO:root:Epoch[29] Batch [400]	Speed: 319.65 samples/sec	Train-Perplexity=4.594741
+22:57:17 INFO:root:Checking BLEU for epoch 29 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+22:59:20 INFO:root:b'1gram=73.02%  2gram=49.75%  3gram=37.72%  4gram=27.57%  \r\nBP = 0.9887\r\nBLEU = 0.4359\r\n'
+22:59:20 INFO:root:BLEU: 0.4359 @ epoch 29 batch 400
+22:59:20 INFO:root:Current BLEU: 0.4359 > prev best 0.4248 in epoch 25
+22:59:20 INFO:root:Saving...
+22:59:20 INFO:root:Saved checkpoint to "best_bleu-0030.params"
+22:59:57 INFO:root:Epoch[29] Batch [500]	Speed: 79.82 samples/sec	Train-Perplexity=3.977610
+23:00:37 INFO:root:Epoch[29] Batch [600]	Speed: 324.40 samples/sec	Train-Perplexity=4.218835
+23:00:50 INFO:root:Epoch[29] Resetting Data Iterator
+23:00:50 INFO:root:Epoch[29] Time cost=365.691
+23:00:51 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0030.params"
+23:01:27 INFO:root:Epoch[30] Batch [100]	Speed: 358.04 samples/sec	Train-Perplexity=3.962719
+23:02:05 INFO:root:Epoch[30] Batch [200]	Speed: 334.57 samples/sec	Train-Perplexity=4.003199
+23:02:43 INFO:root:Epoch[30] Batch [300]	Speed: 335.85 samples/sec	Train-Perplexity=3.933537
+23:03:23 INFO:root:Epoch[30] Batch [400]	Speed: 319.46 samples/sec	Train-Perplexity=4.507263
+23:03:23 INFO:root:Checking BLEU for epoch 30 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+23:05:27 INFO:root:b'1gram=72.85%  2gram=48.92%  3gram=36.23%  4gram=26.13%  \r\nBP = 0.9853\r\nBLEU = 0.4223\r\n'
+23:05:27 INFO:root:BLEU: 0.4223 @ epoch 30 batch 400
+23:06:04 INFO:root:Epoch[30] Batch [500]	Speed: 79.72 samples/sec	Train-Perplexity=3.909418
+23:06:43 INFO:root:Epoch[30] Batch [600]	Speed: 324.64 samples/sec	Train-Perplexity=4.146617
+23:06:57 INFO:root:Epoch[30] Resetting Data Iterator
+23:06:57 INFO:root:Epoch[30] Time cost=365.978
+23:06:58 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0031.params"
+23:07:33 INFO:root:Epoch[31] Batch [100]	Speed: 357.55 samples/sec	Train-Perplexity=3.881883
+23:08:12 INFO:root:Epoch[31] Batch [200]	Speed: 335.27 samples/sec	Train-Perplexity=3.929952
+23:08:50 INFO:root:Epoch[31] Batch [300]	Speed: 336.06 samples/sec	Train-Perplexity=3.861903
+23:09:30 INFO:root:Epoch[31] Batch [400]	Speed: 319.83 samples/sec	Train-Perplexity=4.402535
+23:09:30 INFO:root:Checking BLEU for epoch 31 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [243 ms].
+23:11:34 INFO:root:b'1gram=72.48%  2gram=49.10%  3gram=36.89%  4gram=26.80%  \r\nBP = 0.9837\r\nBLEU = 0.4261\r\n'
+23:11:34 INFO:root:BLEU: 0.4261 @ epoch 31 batch 400
+23:12:11 INFO:root:Epoch[31] Batch [500]	Speed: 79.59 samples/sec	Train-Perplexity=3.829989
+23:12:50 INFO:root:Epoch[31] Batch [600]	Speed: 324.17 samples/sec	Train-Perplexity=4.054468
+23:13:04 INFO:root:Epoch[31] Resetting Data Iterator
+23:13:04 INFO:root:Epoch[31] Time cost=366.171
+23:13:04 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0032.params"
+23:13:40 INFO:root:Epoch[32] Batch [100]	Speed: 357.95 samples/sec	Train-Perplexity=3.885665
+23:14:19 INFO:root:Epoch[32] Batch [200]	Speed: 331.46 samples/sec	Train-Perplexity=3.854284
+23:14:57 INFO:root:Epoch[32] Batch [300]	Speed: 335.93 samples/sec	Train-Perplexity=3.783954
+23:15:37 INFO:root:Epoch[32] Batch [400]	Speed: 319.36 samples/sec	Train-Perplexity=4.335291
+23:15:37 INFO:root:Checking BLEU for epoch 32 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [242 ms].
+23:17:41 INFO:root:b'1gram=72.07%  2gram=48.37%  3gram=36.08%  4gram=26.34%  \r\nBP = 0.9963\r\nBLEU = 0.4251\r\n'
+23:17:41 INFO:root:BLEU: 0.4251 @ epoch 32 batch 400
+23:18:18 INFO:root:Epoch[32] Batch [500]	Speed: 79.54 samples/sec	Train-Perplexity=3.787482
+23:18:57 INFO:root:Epoch[32] Batch [600]	Speed: 324.37 samples/sec	Train-Perplexity=3.992663
+23:19:11 INFO:root:Epoch[32] Resetting Data Iterator
+23:19:11 INFO:root:Epoch[32] Time cost=366.729
+23:19:12 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0033.params"
+23:19:48 INFO:root:Epoch[33] Batch [100]	Speed: 358.02 samples/sec	Train-Perplexity=3.789431
+23:20:26 INFO:root:Epoch[33] Batch [200]	Speed: 335.04 samples/sec	Train-Perplexity=3.802084
+23:21:04 INFO:root:Epoch[33] Batch [300]	Speed: 336.21 samples/sec	Train-Perplexity=3.733409
+23:21:44 INFO:root:Epoch[33] Batch [400]	Speed: 319.87 samples/sec	Train-Perplexity=4.257213
+23:21:44 INFO:root:Checking BLEU for epoch 33 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+23:23:48 INFO:root:b'1gram=71.47%  2gram=47.45%  3gram=35.10%  4gram=24.91%  \r\nBP = 1.0000\r\nBLEU = 0.4150\r\n'
+23:23:48 INFO:root:BLEU: 0.415 @ epoch 33 batch 400
+23:24:25 INFO:root:Epoch[33] Batch [500]	Speed: 79.44 samples/sec	Train-Perplexity=3.702252
+23:25:05 INFO:root:Epoch[33] Batch [600]	Speed: 324.16 samples/sec	Train-Perplexity=3.953748
+23:25:18 INFO:root:Epoch[33] Resetting Data Iterator
+23:25:18 INFO:root:Epoch[33] Time cost=366.485
+23:25:19 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0034.params"
+23:25:55 INFO:root:Epoch[34] Batch [100]	Speed: 357.78 samples/sec	Train-Perplexity=3.712668
+23:26:33 INFO:root:Epoch[34] Batch [200]	Speed: 335.09 samples/sec	Train-Perplexity=3.726853
+23:27:11 INFO:root:Epoch[34] Batch [300]	Speed: 335.97 samples/sec	Train-Perplexity=3.656434
+23:27:51 INFO:root:Epoch[34] Batch [400]	Speed: 319.40 samples/sec	Train-Perplexity=4.186915
+23:27:51 INFO:root:Checking BLEU for epoch 34 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+23:29:56 INFO:root:b'1gram=72.86%  2gram=49.52%  3gram=37.17%  4gram=27.17%  \r\nBP = 0.9879\r\nBLEU = 0.4317\r\n'
+23:29:56 INFO:root:BLEU: 0.4317 @ epoch 34 batch 400
+23:30:33 INFO:root:Epoch[34] Batch [500]	Speed: 78.88 samples/sec	Train-Perplexity=3.626724
+23:31:13 INFO:root:Epoch[34] Batch [600]	Speed: 324.34 samples/sec	Train-Perplexity=3.852287
+23:31:27 INFO:root:Epoch[34] Resetting Data Iterator
+23:31:27 INFO:root:Epoch[34] Time cost=367.663
+23:31:27 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0035.params"
+23:32:03 INFO:root:Epoch[35] Batch [100]	Speed: 357.82 samples/sec	Train-Perplexity=3.642621
+23:32:41 INFO:root:Epoch[35] Batch [200]	Speed: 334.81 samples/sec	Train-Perplexity=3.670861
+23:33:19 INFO:root:Epoch[35] Batch [300]	Speed: 336.10 samples/sec	Train-Perplexity=3.608510
+23:34:00 INFO:root:Epoch[35] Batch [400]	Speed: 319.11 samples/sec	Train-Perplexity=4.110463
+23:34:00 INFO:root:Checking BLEU for epoch 35 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+23:36:04 INFO:root:b'1gram=73.04%  2gram=49.33%  3gram=37.01%  4gram=27.20%  \r\nBP = 0.9956\r\nBLEU = 0.4345\r\n'
+23:36:04 INFO:root:BLEU: 0.4345 @ epoch 35 batch 400
+23:36:41 INFO:root:Epoch[35] Batch [500]	Speed: 79.50 samples/sec	Train-Perplexity=3.585162
+23:37:20 INFO:root:Epoch[35] Batch [600]	Speed: 324.01 samples/sec	Train-Perplexity=3.779326
+23:37:34 INFO:root:Epoch[35] Resetting Data Iterator
+23:37:34 INFO:root:Epoch[35] Time cost=366.483
+23:37:34 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0036.params"
+23:38:10 INFO:root:Epoch[36] Batch [100]	Speed: 357.39 samples/sec	Train-Perplexity=3.574405
+23:38:48 INFO:root:Epoch[36] Batch [200]	Speed: 334.85 samples/sec	Train-Perplexity=3.615811
+23:39:27 INFO:root:Epoch[36] Batch [300]	Speed: 335.90 samples/sec	Train-Perplexity=3.536461
+23:40:07 INFO:root:Epoch[36] Batch [400]	Speed: 319.57 samples/sec	Train-Perplexity=4.072223
+23:40:07 INFO:root:Checking BLEU for epoch 36 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+23:42:11 INFO:root:b'1gram=73.09%  2gram=49.54%  3gram=37.24%  4gram=27.26%  \r\nBP = 0.9971\r\nBLEU = 0.4366\r\n'
+23:42:11 INFO:root:BLEU: 0.4366 @ epoch 36 batch 400
+23:42:11 INFO:root:Current BLEU: 0.4366 > prev best 0.4359 in epoch 29
+23:42:11 INFO:root:Saving...
+23:42:11 INFO:root:Saved checkpoint to "best_bleu-0037.params"
+23:42:48 INFO:root:Epoch[36] Batch [500]	Speed: 79.34 samples/sec	Train-Perplexity=3.511627
+23:43:27 INFO:root:Epoch[36] Batch [600]	Speed: 324.38 samples/sec	Train-Perplexity=3.713632
+23:43:41 INFO:root:Epoch[36] Resetting Data Iterator
+23:43:41 INFO:root:Epoch[36] Time cost=366.780
+23:43:42 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0037.params"
+23:44:18 INFO:root:Epoch[37] Batch [100]	Speed: 357.87 samples/sec	Train-Perplexity=3.533548
+23:44:56 INFO:root:Epoch[37] Batch [200]	Speed: 334.95 samples/sec	Train-Perplexity=3.543121
+23:45:34 INFO:root:Epoch[37] Batch [300]	Speed: 335.64 samples/sec	Train-Perplexity=3.484517
+23:46:14 INFO:root:Epoch[37] Batch [400]	Speed: 319.59 samples/sec	Train-Perplexity=3.976594
+23:46:14 INFO:root:Checking BLEU for epoch 37 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [242 ms].
+23:48:18 INFO:root:b'1gram=71.98%  2gram=47.77%  3gram=35.48%  4gram=25.23%  \r\nBP = 0.9977\r\nBLEU = 0.4179\r\n'
+23:48:18 INFO:root:BLEU: 0.4179 @ epoch 37 batch 400
+23:48:55 INFO:root:Epoch[37] Batch [500]	Speed: 79.58 samples/sec	Train-Perplexity=3.486265
+23:49:34 INFO:root:Epoch[37] Batch [600]	Speed: 323.40 samples/sec	Train-Perplexity=3.658202
+23:49:48 INFO:root:Epoch[37] Resetting Data Iterator
+23:49:48 INFO:root:Epoch[37] Time cost=366.380
+23:49:49 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0038.params"
+23:50:25 INFO:root:Epoch[38] Batch [100]	Speed: 357.33 samples/sec	Train-Perplexity=3.494332
+23:51:03 INFO:root:Epoch[38] Batch [200]	Speed: 334.01 samples/sec	Train-Perplexity=3.510251
+23:51:41 INFO:root:Epoch[38] Batch [300]	Speed: 335.70 samples/sec	Train-Perplexity=3.437536
+23:52:21 INFO:root:Epoch[38] Batch [400]	Speed: 319.40 samples/sec	Train-Perplexity=3.915965
+23:52:21 INFO:root:Checking BLEU for epoch 38 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [243 ms].
+23:54:24 INFO:root:b'1gram=73.34%  2gram=49.38%  3gram=37.60%  4gram=27.72%  \r\nBP = 0.9792\r\nBLEU = 0.4316\r\n'
+23:54:24 INFO:root:BLEU: 0.4316 @ epoch 38 batch 400
+23:55:01 INFO:root:Epoch[38] Batch [500]	Speed: 80.05 samples/sec	Train-Perplexity=3.412933
+23:55:41 INFO:root:Epoch[38] Batch [600]	Speed: 324.22 samples/sec	Train-Perplexity=3.610383
+23:55:54 INFO:root:Epoch[38] Resetting Data Iterator
+23:55:54 INFO:root:Epoch[38] Time cost=365.524
+23:55:55 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0039.params"
+23:56:31 INFO:root:Epoch[39] Batch [100]	Speed: 357.86 samples/sec	Train-Perplexity=3.410397
+23:57:09 INFO:root:Epoch[39] Batch [200]	Speed: 334.67 samples/sec	Train-Perplexity=3.453946
+23:57:47 INFO:root:Epoch[39] Batch [300]	Speed: 335.97 samples/sec	Train-Perplexity=3.392457
+23:58:27 INFO:root:Epoch[39] Batch [400]	Speed: 319.98 samples/sec	Train-Perplexity=3.868850
+23:58:27 INFO:root:Checking BLEU for epoch 39 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [242 ms].
+00:00:32 INFO:root:b'1gram=72.16%  2gram=47.99%  3gram=35.59%  4gram=25.67%  \r\nBP = 1.0000\r\nBLEU = 0.4217\r\n'
+00:00:32 INFO:root:BLEU: 0.4217 @ epoch 39 batch 400
+00:01:09 INFO:root:Epoch[39] Batch [500]	Speed: 79.26 samples/sec	Train-Perplexity=3.392095
+00:01:48 INFO:root:Epoch[39] Batch [600]	Speed: 324.30 samples/sec	Train-Perplexity=3.557561
+00:02:02 INFO:root:Epoch[39] Resetting Data Iterator
+00:02:02 INFO:root:Epoch[39] Time cost=366.865
+00:02:02 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0040.params"
+00:02:39 INFO:root:Epoch[40] Batch [100]	Speed: 350.17 samples/sec	Train-Perplexity=3.356947
+00:03:17 INFO:root:Epoch[40] Batch [200]	Speed: 334.80 samples/sec	Train-Perplexity=3.408309
+00:03:56 INFO:root:Epoch[40] Batch [300]	Speed: 335.42 samples/sec	Train-Perplexity=3.341321
+00:04:36 INFO:root:Epoch[40] Batch [400]	Speed: 319.48 samples/sec	Train-Perplexity=3.813529
+00:04:36 INFO:root:Checking BLEU for epoch 40 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [244 ms].
+00:06:40 INFO:root:b'1gram=73.21%  2gram=49.27%  3gram=37.03%  4gram=27.07%  \r\nBP = 0.9908\r\nBLEU = 0.4321\r\n'
+00:06:40 INFO:root:BLEU: 0.4321 @ epoch 40 batch 400
+00:07:16 INFO:root:Epoch[40] Batch [500]	Speed: 79.59 samples/sec	Train-Perplexity=3.342658
+00:07:56 INFO:root:Epoch[40] Batch [600]	Speed: 324.20 samples/sec	Train-Perplexity=3.529993
+00:08:10 INFO:root:Epoch[40] Resetting Data Iterator
+00:08:10 INFO:root:Epoch[40] Time cost=367.100
+00:08:10 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0041.params"
+00:08:46 INFO:root:Epoch[41] Batch [100]	Speed: 357.20 samples/sec	Train-Perplexity=3.363024
+00:09:24 INFO:root:Epoch[41] Batch [200]	Speed: 334.37 samples/sec	Train-Perplexity=3.352243
+00:10:03 INFO:root:Epoch[41] Batch [300]	Speed: 335.77 samples/sec	Train-Perplexity=3.289595
+00:10:43 INFO:root:Epoch[41] Batch [400]	Speed: 319.19 samples/sec	Train-Perplexity=3.754321
+00:10:43 INFO:root:Checking BLEU for epoch 41 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+00:12:48 INFO:root:b'1gram=72.25%  2gram=49.30%  3gram=37.14%  4gram=26.91%  \r\nBP = 1.0000\r\nBLEU = 0.4344\r\n'
+00:12:48 INFO:root:BLEU: 0.4344 @ epoch 41 batch 400
+00:13:25 INFO:root:Epoch[41] Batch [500]	Speed: 79.01 samples/sec	Train-Perplexity=3.291721
+00:14:04 INFO:root:Epoch[41] Batch [600]	Speed: 323.94 samples/sec	Train-Perplexity=3.463519
+00:14:18 INFO:root:Epoch[41] Resetting Data Iterator
+00:14:18 INFO:root:Epoch[41] Time cost=367.667
+00:14:19 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0042.params"
+00:14:55 INFO:root:Epoch[42] Batch [100]	Speed: 357.39 samples/sec	Train-Perplexity=3.321909
+00:15:33 INFO:root:Epoch[42] Batch [200]	Speed: 334.74 samples/sec	Train-Perplexity=3.308056
+00:16:11 INFO:root:Epoch[42] Batch [300]	Speed: 334.78 samples/sec	Train-Perplexity=3.234425
+00:16:51 INFO:root:Epoch[42] Batch [400]	Speed: 319.44 samples/sec	Train-Perplexity=3.724314
+00:16:51 INFO:root:Checking BLEU for epoch 42 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [243 ms].
+00:18:58 INFO:root:b'1gram=70.86%  2gram=47.49%  3gram=35.56%  4gram=25.64%  \r\nBP = 1.0000\r\nBLEU = 0.4185\r\n'
+00:18:58 INFO:root:BLEU: 0.4185 @ epoch 42 batch 400
+00:19:35 INFO:root:Epoch[42] Batch [500]	Speed: 78.28 samples/sec	Train-Perplexity=3.245776
+00:20:14 INFO:root:Epoch[42] Batch [600]	Speed: 323.44 samples/sec	Train-Perplexity=3.407396
+00:20:28 INFO:root:Epoch[42] Resetting Data Iterator
+00:20:28 INFO:root:Epoch[42] Time cost=369.212
+00:20:28 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0043.params"
+00:21:04 INFO:root:Epoch[43] Batch [100]	Speed: 356.92 samples/sec	Train-Perplexity=3.250229
+00:21:43 INFO:root:Epoch[43] Batch [200]	Speed: 335.56 samples/sec	Train-Perplexity=3.274649
+00:22:21 INFO:root:Epoch[43] Batch [300]	Speed: 336.32 samples/sec	Train-Perplexity=3.214198
+00:23:01 INFO:root:Epoch[43] Batch [400]	Speed: 319.96 samples/sec	Train-Perplexity=3.701373
+00:23:01 INFO:root:Checking BLEU for epoch 43 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+00:25:06 INFO:root:b'1gram=71.57%  2gram=48.42%  3gram=36.15%  4gram=26.46%  \r\nBP = 1.0000\r\nBLEU = 0.4267\r\n'
+00:25:06 INFO:root:BLEU: 0.4267 @ epoch 43 batch 400
+00:25:43 INFO:root:Epoch[43] Batch [500]	Speed: 79.03 samples/sec	Train-Perplexity=3.202524
+00:26:22 INFO:root:Epoch[43] Batch [600]	Speed: 324.71 samples/sec	Train-Perplexity=3.374590
+00:26:36 INFO:root:Epoch[43] Resetting Data Iterator
+00:26:36 INFO:root:Epoch[43] Time cost=367.202
+00:26:36 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0044.params"
+00:27:12 INFO:root:Epoch[44] Batch [100]	Speed: 358.34 samples/sec	Train-Perplexity=3.251368
+00:27:50 INFO:root:Epoch[44] Batch [200]	Speed: 335.11 samples/sec	Train-Perplexity=3.230534
+00:28:28 INFO:root:Epoch[44] Batch [300]	Speed: 336.60 samples/sec	Train-Perplexity=3.183112
+00:29:08 INFO:root:Epoch[44] Batch [400]	Speed: 320.27 samples/sec	Train-Perplexity=3.616401
+00:29:08 INFO:root:Checking BLEU for epoch 44 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [239 ms].
+00:31:50 INFO:root:b'1gram=72.44%  2gram=48.61%  3gram=36.49%  4gram=26.59%  \r\nBP = 1.0000\r\nBLEU = 0.4299\r\n'
+00:31:50 INFO:root:BLEU: 0.4299 @ epoch 44 batch 400
+00:32:59 INFO:root:Epoch[44] Batch [500]	Speed: 55.43 samples/sec	Train-Perplexity=3.160131
+00:33:43 INFO:root:Epoch[44] Batch [600]	Speed: 294.19 samples/sec	Train-Perplexity=3.314777
+00:34:05 INFO:root:Epoch[44] Resetting Data Iterator
+00:34:05 INFO:root:Epoch[44] Time cost=448.968
+00:34:06 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0045.params"
+00:35:15 INFO:root:Epoch[45] Batch [100]	Speed: 187.53 samples/sec	Train-Perplexity=3.168578
+00:35:58 INFO:root:Epoch[45] Batch [200]	Speed: 296.46 samples/sec	Train-Perplexity=3.186525
+00:36:37 INFO:root:Epoch[45] Batch [300]	Speed: 331.03 samples/sec	Train-Perplexity=3.124966
+00:37:22 INFO:root:Epoch[45] Batch [400]	Speed: 283.18 samples/sec	Train-Perplexity=3.576049
+00:37:22 INFO:root:Checking BLEU for epoch 45 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+00:39:27 INFO:root:b'1gram=72.85%  2gram=48.60%  3gram=36.19%  4gram=26.58%  \r\nBP = 1.0000\r\nBLEU = 0.4296\r\n'
+00:39:27 INFO:root:BLEU: 0.4296 @ epoch 45 batch 400
+00:40:04 INFO:root:Epoch[45] Batch [500]	Speed: 78.93 samples/sec	Train-Perplexity=3.120963
+00:40:44 INFO:root:Epoch[45] Batch [600]	Speed: 324.25 samples/sec	Train-Perplexity=3.287161
+00:40:57 INFO:root:Epoch[45] Resetting Data Iterator
+00:40:57 INFO:root:Epoch[45] Time cost=410.759
+00:40:58 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0046.params"
+00:41:34 INFO:root:Epoch[46] Batch [100]	Speed: 358.12 samples/sec	Train-Perplexity=3.126530
+00:42:12 INFO:root:Epoch[46] Batch [200]	Speed: 335.34 samples/sec	Train-Perplexity=3.139847
+00:42:50 INFO:root:Epoch[46] Batch [300]	Speed: 336.50 samples/sec	Train-Perplexity=3.094464
+00:43:30 INFO:root:Epoch[46] Batch [400]	Speed: 318.95 samples/sec	Train-Perplexity=3.523277
+00:43:30 INFO:root:Checking BLEU for epoch 46 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+00:45:35 INFO:root:b'1gram=72.20%  2gram=48.50%  3gram=35.88%  4gram=26.09%  \r\nBP = 1.0000\r\nBLEU = 0.4255\r\n'
+00:45:35 INFO:root:BLEU: 0.4255 @ epoch 46 batch 400
+00:46:12 INFO:root:Epoch[46] Batch [500]	Speed: 79.07 samples/sec	Train-Perplexity=3.091579
+00:46:51 INFO:root:Epoch[46] Batch [600]	Speed: 324.51 samples/sec	Train-Perplexity=3.243255
+00:47:05 INFO:root:Epoch[46] Resetting Data Iterator
+00:47:05 INFO:root:Epoch[46] Time cost=367.176
+00:47:06 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0047.params"
+00:47:42 INFO:root:Epoch[47] Batch [100]	Speed: 358.25 samples/sec	Train-Perplexity=3.127451
+00:48:20 INFO:root:Epoch[47] Batch [200]	Speed: 335.39 samples/sec	Train-Perplexity=3.118381
+00:48:58 INFO:root:Epoch[47] Batch [300]	Speed: 336.53 samples/sec	Train-Perplexity=3.064091
+00:49:38 INFO:root:Epoch[47] Batch [400]	Speed: 319.99 samples/sec	Train-Perplexity=3.486758
+00:49:38 INFO:root:Checking BLEU for epoch 47 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+00:51:41 INFO:root:b'1gram=73.16%  2gram=49.56%  3gram=37.50%  4gram=28.27%  \r\nBP = 0.9755\r\nBLEU = 0.4319\r\n'
+00:51:41 INFO:root:BLEU: 0.4319 @ epoch 47 batch 400
+00:52:17 INFO:root:Epoch[47] Batch [500]	Speed: 80.20 samples/sec	Train-Perplexity=3.042889
+00:52:57 INFO:root:Epoch[47] Batch [600]	Speed: 324.67 samples/sec	Train-Perplexity=3.219357
+00:53:10 INFO:root:Epoch[47] Resetting Data Iterator
+00:53:10 INFO:root:Epoch[47] Time cost=364.720
+00:53:11 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0048.params"
+00:53:47 INFO:root:Epoch[48] Batch [100]	Speed: 358.36 samples/sec	Train-Perplexity=3.065208
+00:54:25 INFO:root:Epoch[48] Batch [200]	Speed: 335.32 samples/sec	Train-Perplexity=3.078973
+00:55:03 INFO:root:Epoch[48] Batch [300]	Speed: 336.66 samples/sec	Train-Perplexity=3.022346
+00:55:43 INFO:root:Epoch[48] Batch [400]	Speed: 319.88 samples/sec	Train-Perplexity=3.463543
+00:55:43 INFO:root:Checking BLEU for epoch 48 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+00:57:49 INFO:root:b'1gram=72.70%  2gram=49.23%  3gram=36.91%  4gram=27.22%  \r\nBP = 1.0000\r\nBLEU = 0.4354\r\n'
+00:57:49 INFO:root:BLEU: 0.4354 @ epoch 48 batch 400
+00:58:26 INFO:root:Epoch[48] Batch [500]	Speed: 78.62 samples/sec	Train-Perplexity=3.017454
+00:59:05 INFO:root:Epoch[48] Batch [600]	Speed: 324.70 samples/sec	Train-Perplexity=3.170958
+00:59:19 INFO:root:Epoch[48] Resetting Data Iterator
+00:59:19 INFO:root:Epoch[48] Time cost=367.905
+00:59:20 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0049.params"
+00:59:55 INFO:root:Epoch[49] Batch [100]	Speed: 358.41 samples/sec	Train-Perplexity=3.014912
+01:00:34 INFO:root:Epoch[49] Batch [200]	Speed: 335.27 samples/sec	Train-Perplexity=3.051303
+01:01:12 INFO:root:Epoch[49] Batch [300]	Speed: 336.77 samples/sec	Train-Perplexity=2.991697
+01:01:52 INFO:root:Epoch[49] Batch [400]	Speed: 320.15 samples/sec	Train-Perplexity=3.408235
+01:01:52 INFO:root:Checking BLEU for epoch 49 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [242 ms].
+01:03:55 INFO:root:b'1gram=74.00%  2gram=49.88%  3gram=37.87%  4gram=28.41%  \r\nBP = 0.9800\r\nBLEU = 0.4375\r\n'
+01:03:55 INFO:root:BLEU: 0.4375 @ epoch 49 batch 400
+01:03:55 INFO:root:Current BLEU: 0.4375 > prev best 0.4366 in epoch 36
+01:03:55 INFO:root:Saving...
+01:03:55 INFO:root:Saved checkpoint to "best_bleu-0050.params"
+01:04:32 INFO:root:Epoch[49] Batch [500]	Speed: 79.91 samples/sec	Train-Perplexity=2.990173
+01:05:11 INFO:root:Epoch[49] Batch [600]	Speed: 324.86 samples/sec	Train-Perplexity=3.145794
+01:05:25 INFO:root:Epoch[49] Resetting Data Iterator
+01:05:25 INFO:root:Epoch[49] Time cost=365.229
+01:05:25 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0050.params"
+01:06:01 INFO:root:Epoch[50] Batch [100]	Speed: 357.71 samples/sec	Train-Perplexity=3.020203
+01:06:40 INFO:root:Epoch[50] Batch [200]	Speed: 335.67 samples/sec	Train-Perplexity=3.019267
+01:07:18 INFO:root:Epoch[50] Batch [300]	Speed: 336.66 samples/sec	Train-Perplexity=2.957691
+01:07:58 INFO:root:Epoch[50] Batch [400]	Speed: 315.11 samples/sec	Train-Perplexity=3.374037
+01:07:58 INFO:root:Checking BLEU for epoch 50 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+01:10:01 INFO:root:b'1gram=73.25%  2gram=48.85%  3gram=36.41%  4gram=26.88%  \r\nBP = 0.9887\r\nBLEU = 0.4277\r\n'
+01:10:01 INFO:root:BLEU: 0.4277 @ epoch 50 batch 400
+01:10:37 INFO:root:Epoch[50] Batch [500]	Speed: 80.42 samples/sec	Train-Perplexity=2.954035
+01:11:17 INFO:root:Epoch[50] Batch [600]	Speed: 324.71 samples/sec	Train-Perplexity=3.105496
+01:11:30 INFO:root:Epoch[50] Resetting Data Iterator
+01:11:30 INFO:root:Epoch[50] Time cost=364.881
+01:11:31 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0051.params"
+01:12:07 INFO:root:Epoch[51] Batch [100]	Speed: 358.36 samples/sec	Train-Perplexity=2.987536
+01:12:45 INFO:root:Epoch[51] Batch [200]	Speed: 335.53 samples/sec	Train-Perplexity=2.985420
+01:13:23 INFO:root:Epoch[51] Batch [300]	Speed: 336.94 samples/sec	Train-Perplexity=2.933420
+01:14:03 INFO:root:Epoch[51] Batch [400]	Speed: 319.95 samples/sec	Train-Perplexity=3.334243
+01:14:03 INFO:root:Checking BLEU for epoch 51 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+01:16:08 INFO:root:b'1gram=72.88%  2gram=49.27%  3gram=36.94%  4gram=27.25%  \r\nBP = 1.0000\r\nBLEU = 0.4361\r\n'
+01:16:08 INFO:root:BLEU: 0.4361 @ epoch 51 batch 400
+01:16:45 INFO:root:Epoch[51] Batch [500]	Speed: 79.19 samples/sec	Train-Perplexity=2.927022
+01:17:24 INFO:root:Epoch[51] Batch [600]	Speed: 324.95 samples/sec	Train-Perplexity=3.073325
+01:17:38 INFO:root:Epoch[51] Resetting Data Iterator
+01:17:38 INFO:root:Epoch[51] Time cost=366.619
+01:17:38 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0052.params"
+01:18:14 INFO:root:Epoch[52] Batch [100]	Speed: 358.80 samples/sec	Train-Perplexity=2.942163
+01:18:52 INFO:root:Epoch[52] Batch [200]	Speed: 335.97 samples/sec	Train-Perplexity=2.951506
+01:19:30 INFO:root:Epoch[52] Batch [300]	Speed: 336.97 samples/sec	Train-Perplexity=2.895919
+01:20:10 INFO:root:Epoch[52] Batch [400]	Speed: 319.99 samples/sec	Train-Perplexity=3.298124
+01:20:10 INFO:root:Checking BLEU for epoch 52 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+01:22:16 INFO:root:b'1gram=71.71%  2gram=47.97%  3gram=35.51%  4gram=26.02%  \r\nBP = 1.0000\r\nBLEU = 0.4222\r\n'
+01:22:16 INFO:root:BLEU: 0.4222 @ epoch 52 batch 400
+01:22:52 INFO:root:Epoch[52] Batch [500]	Speed: 79.03 samples/sec	Train-Perplexity=2.905427
+01:23:32 INFO:root:Epoch[52] Batch [600]	Speed: 325.05 samples/sec	Train-Perplexity=3.039335
+01:23:46 INFO:root:Epoch[52] Resetting Data Iterator
+01:23:46 INFO:root:Epoch[52] Time cost=367.316
+01:23:46 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0053.params"
+01:24:22 INFO:root:Epoch[53] Batch [100]	Speed: 358.35 samples/sec	Train-Perplexity=2.912539
+01:25:00 INFO:root:Epoch[53] Batch [200]	Speed: 335.07 samples/sec	Train-Perplexity=2.912047
+01:25:38 INFO:root:Epoch[53] Batch [300]	Speed: 336.40 samples/sec	Train-Perplexity=2.884444
+01:26:18 INFO:root:Epoch[53] Batch [400]	Speed: 319.80 samples/sec	Train-Perplexity=3.274917
+01:26:18 INFO:root:Checking BLEU for epoch 53 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+01:28:23 INFO:root:b'1gram=72.65%  2gram=49.63%  3gram=37.62%  4gram=28.08%  \r\nBP = 1.0000\r\nBLEU = 0.4418\r\n'
+01:28:23 INFO:root:BLEU: 0.4418 @ epoch 53 batch 400
+01:28:23 INFO:root:Current BLEU: 0.4418 > prev best 0.4375 in epoch 49
+01:28:23 INFO:root:Saving...
+01:28:23 INFO:root:Saved checkpoint to "best_bleu-0054.params"
+01:29:00 INFO:root:Epoch[53] Batch [500]	Speed: 79.18 samples/sec	Train-Perplexity=2.870809
+01:29:40 INFO:root:Epoch[53] Batch [600]	Speed: 324.26 samples/sec	Train-Perplexity=3.016911
+01:29:53 INFO:root:Epoch[53] Resetting Data Iterator
+01:29:53 INFO:root:Epoch[53] Time cost=366.881
+01:29:54 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0054.params"
+01:30:30 INFO:root:Epoch[54] Batch [100]	Speed: 358.38 samples/sec	Train-Perplexity=2.883674
+01:31:08 INFO:root:Epoch[54] Batch [200]	Speed: 335.57 samples/sec	Train-Perplexity=2.884527
+01:31:46 INFO:root:Epoch[54] Batch [300]	Speed: 336.49 samples/sec	Train-Perplexity=2.842884
+01:32:26 INFO:root:Epoch[54] Batch [400]	Speed: 320.14 samples/sec	Train-Perplexity=3.233647
+01:32:26 INFO:root:Checking BLEU for epoch 54 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [241 ms].
+01:34:29 INFO:root:b'1gram=72.82%  2gram=48.45%  3gram=36.25%  4gram=26.67%  \r\nBP = 0.9922\r\nBLEU = 0.4264\r\n'
+01:34:30 INFO:root:BLEU: 0.4264 @ epoch 54 batch 400
+01:35:06 INFO:root:Epoch[54] Batch [500]	Speed: 79.87 samples/sec	Train-Perplexity=2.852245
+01:35:45 INFO:root:Epoch[54] Batch [600]	Speed: 325.38 samples/sec	Train-Perplexity=2.977500
+01:35:59 INFO:root:Epoch[54] Resetting Data Iterator
+01:35:59 INFO:root:Epoch[54] Time cost=365.198
+01:36:00 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0055.params"
+01:36:35 INFO:root:Epoch[55] Batch [100]	Speed: 358.32 samples/sec	Train-Perplexity=2.842367
+01:37:14 INFO:root:Epoch[55] Batch [200]	Speed: 336.32 samples/sec	Train-Perplexity=2.863954
+01:37:52 INFO:root:Epoch[55] Batch [300]	Speed: 336.51 samples/sec	Train-Perplexity=2.809389
+01:38:32 INFO:root:Epoch[55] Batch [400]	Speed: 320.76 samples/sec	Train-Perplexity=3.203576
+01:38:32 INFO:root:Checking BLEU for epoch 55 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [243 ms].
+01:40:37 INFO:root:b'1gram=71.48%  2gram=48.49%  3gram=36.17%  4gram=26.42%  \r\nBP = 1.0000\r\nBLEU = 0.4266\r\n'
+01:40:37 INFO:root:BLEU: 0.4266 @ epoch 55 batch 400
+01:41:13 INFO:root:Epoch[55] Batch [500]	Speed: 79.12 samples/sec	Train-Perplexity=2.816309
+01:41:53 INFO:root:Epoch[55] Batch [600]	Speed: 325.54 samples/sec	Train-Perplexity=2.954175
+01:42:06 INFO:root:Epoch[55] Resetting Data Iterator
+01:42:06 INFO:root:Epoch[55] Time cost=366.534
+01:42:07 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0056.params"
+01:42:43 INFO:root:Epoch[56] Batch [100]	Speed: 359.04 samples/sec	Train-Perplexity=2.832930
+01:43:21 INFO:root:Epoch[56] Batch [200]	Speed: 335.64 samples/sec	Train-Perplexity=2.840716
+01:43:59 INFO:root:Epoch[56] Batch [300]	Speed: 336.90 samples/sec	Train-Perplexity=2.801349
+01:44:39 INFO:root:Epoch[56] Batch [400]	Speed: 320.40 samples/sec	Train-Perplexity=3.174728
+01:44:39 INFO:root:Checking BLEU for epoch 56 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [242 ms].
+01:46:44 INFO:root:b'1gram=72.53%  2gram=48.84%  3gram=36.61%  4gram=26.60%  \r\nBP = 1.0000\r\nBLEU = 0.4310\r\n'
+01:46:44 INFO:root:BLEU: 0.431 @ epoch 56 batch 400
+01:47:21 INFO:root:Epoch[56] Batch [500]	Speed: 78.99 samples/sec	Train-Perplexity=2.816300
+01:48:00 INFO:root:Epoch[56] Batch [600]	Speed: 325.36 samples/sec	Train-Perplexity=2.920598
+01:48:14 INFO:root:Epoch[56] Resetting Data Iterator
+01:48:14 INFO:root:Epoch[56] Time cost=366.832
+01:48:14 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0057.params"
+01:48:50 INFO:root:Epoch[57] Batch [100]	Speed: 358.55 samples/sec	Train-Perplexity=2.874106
+01:49:28 INFO:root:Epoch[57] Batch [200]	Speed: 335.34 samples/sec	Train-Perplexity=2.828585
+01:50:06 INFO:root:Epoch[57] Batch [300]	Speed: 337.02 samples/sec	Train-Perplexity=2.769679
+01:50:46 INFO:root:Epoch[57] Batch [400]	Speed: 320.39 samples/sec	Train-Perplexity=3.160472
+01:50:46 INFO:root:Checking BLEU for epoch 57 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+01:52:51 INFO:root:b'1gram=72.43%  2gram=49.31%  3gram=36.48%  4gram=26.66%  \r\nBP = 1.0000\r\nBLEU = 0.4317\r\n'
+01:52:51 INFO:root:BLEU: 0.4317 @ epoch 57 batch 400
+01:53:27 INFO:root:Epoch[57] Batch [500]	Speed: 79.45 samples/sec	Train-Perplexity=2.769165
+01:54:07 INFO:root:Epoch[57] Batch [600]	Speed: 325.05 samples/sec	Train-Perplexity=2.893226
+01:54:20 INFO:root:Epoch[57] Resetting Data Iterator
+01:54:20 INFO:root:Epoch[57] Time cost=366.027
+01:54:21 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0058.params"
+01:54:57 INFO:root:Epoch[58] Batch [100]	Speed: 358.92 samples/sec	Train-Perplexity=2.794343
+01:55:35 INFO:root:Epoch[58] Batch [200]	Speed: 336.01 samples/sec	Train-Perplexity=2.797318
+01:56:14 INFO:root:Epoch[58] Batch [300]	Speed: 330.93 samples/sec	Train-Perplexity=2.754186
+01:56:53 INFO:root:Epoch[58] Batch [400]	Speed: 321.14 samples/sec	Train-Perplexity=3.105465
+01:56:53 INFO:root:Checking BLEU for epoch 58 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [242 ms].
+01:58:57 INFO:root:b'1gram=72.48%  2gram=48.46%  3gram=36.07%  4gram=26.21%  \r\nBP = 1.0000\r\nBLEU = 0.4269\r\n'
+01:58:57 INFO:root:BLEU: 0.4269 @ epoch 58 batch 400
+01:59:34 INFO:root:Epoch[58] Batch [500]	Speed: 79.88 samples/sec	Train-Perplexity=2.762731
+02:00:13 INFO:root:Epoch[58] Batch [600]	Speed: 326.43 samples/sec	Train-Perplexity=2.879713
+02:00:26 INFO:root:Epoch[58] Resetting Data Iterator
+02:00:26 INFO:root:Epoch[58] Time cost=365.398
+02:00:27 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0059.params"
+02:01:03 INFO:root:Epoch[59] Batch [100]	Speed: 359.87 samples/sec	Train-Perplexity=2.757996
+02:01:41 INFO:root:Epoch[59] Batch [200]	Speed: 337.06 samples/sec	Train-Perplexity=2.766533
+02:02:19 INFO:root:Epoch[59] Batch [300]	Speed: 337.16 samples/sec	Train-Perplexity=2.724831
+02:02:59 INFO:root:Epoch[59] Batch [400]	Speed: 320.85 samples/sec	Train-Perplexity=3.093099
+02:02:59 INFO:root:Checking BLEU for epoch 59 batch 400
+Loading reference data D:\users\home\Projects\mxnmt\IWSLT\dev\IWSLT.dev.txt...446 reference sentences read [240 ms].
+02:05:04 INFO:root:b'1gram=71.82%  2gram=48.89%  3gram=36.85%  4gram=27.27%  \r\nBP = 1.0000\r\nBLEU = 0.4334\r\n'
+02:05:04 INFO:root:BLEU: 0.4334 @ epoch 59 batch 400
+02:05:41 INFO:root:Epoch[59] Batch [500]	Speed: 79.01 samples/sec	Train-Perplexity=2.736961
+02:06:20 INFO:root:Epoch[59] Batch [600]	Speed: 325.19 samples/sec	Train-Perplexity=2.838531
+02:06:34 INFO:root:Epoch[59] Resetting Data Iterator
+02:06:34 INFO:root:Epoch[59] Time cost=366.495
+02:06:34 INFO:root:Saved checkpoint to "D:\users\home\Projects\mxnmt\IWSLT\model\zh-en-iwslt-0060.params"
+
+Process finished with exit code 0
