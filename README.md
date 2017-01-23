@@ -4,13 +4,14 @@ This is an implementation seq2seq with attention for neural machine translation 
 
 ## Data
 
-The current code uses IWSLT 2009 Chinese-English corpus as training, development and test data. Please request this data set or use other available parallel corpus. Data statistics,
+The current code uses IWSLT 2009 Chinese-English corpus as training, development and test data. Please request this data set or **use other available parallel corpus**. Data statistics,
 
 | training | dev | test |
 |----------|-----|------|
 | 81819    | 446 | 504  |
 
-
+## Attention
+The author cannot distribute this dataset. **Any email requesting this dataset to the code author will not be replied.**
 ### Dev/Test Data Format
 The reference number of IWSLT 2009 Ch-En is 7, for example:
 ```
