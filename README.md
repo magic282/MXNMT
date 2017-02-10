@@ -1,6 +1,6 @@
 # MXNMT: MXNet based Neural Machine Translation
 
-This is an implementation seq2seq with attention for neural machine translation with MXNet.
+This is an implementation of seq2seq with attention for neural machine translation with MXNet.
 
 ## Data
 
