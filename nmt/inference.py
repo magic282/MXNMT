@@ -8,7 +8,7 @@ def initial_state_symbol(t_num_lstm_layer, t_num_hidden):
     encoded = mx.sym.Variable("encoded")
     init_weight = mx.sym.Variable("target_init_weight")
     init_bias = mx.sym.Variable("target_init_bias")
-    init_h = mx.sym.FullyConnected(data=encoded, num_hidden=t_num_hidden,
+    init_h = mx.sym.FullyConnected(data=encoded, num_hidden=t_num_hidden * t_num_lstm_layer,
                                    weight=init_weight, bias=init_bias, name='init_fc')
     init_h = mx.sym.Activation(data=init_h, act_type='tanh', name='init_act')
     init_hs = mx.sym.SliceChannel(data=init_h, num_outputs=t_num_lstm_layer, squeeze_axis=1)
