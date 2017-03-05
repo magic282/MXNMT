@@ -38,7 +38,7 @@ class LstmEncoder(object):
         assert (len(last_states) == self.num_of_layer)
 
         # embedding layer
-        embed = mx.sym.Embedding(data=data, input_dim=self.vocab_size + 1,
+        embed = mx.sym.Embedding(data=data, input_dim=self.vocab_size,
                                  weight=embed_weight, output_dim=self.embed_dim, name='source_embed')
         wordvec = mx.sym.SliceChannel(data=embed, num_outputs=self.seq_len, squeeze_axis=1)
 
@@ -125,7 +125,7 @@ class BiDirectionalLstmEncoder(object):
         assert (len(backward_last_states) == self.num_of_layer)
 
         # embedding layer
-        embed = mx.sym.Embedding(data=data, input_dim=self.vocab_size + 1,
+        embed = mx.sym.Embedding(data=data, input_dim=self.vocab_size,
                                  weight=embed_weight, output_dim=self.embed_dim, name='source_embed')
         wordvec = mx.sym.SliceChannel(data=embed, num_outputs=self.seq_len, squeeze_axis=1)
 
@@ -263,7 +263,7 @@ class BiDirectionalGruEncoder(object):
         assert (len(backward_last_states) == self.num_of_layer)
 
         # embedding layer
-        embed = mx.sym.Embedding(data=data, input_dim=self.vocab_size + 1,
+        embed = mx.sym.Embedding(data=data, input_dim=self.vocab_size,
                                  weight=embed_weight, output_dim=self.embed_dim, name='source_embed')
         wordvec = mx.sym.SliceChannel(data=embed, num_outputs=self.seq_len, squeeze_axis=1)
 
