@@ -1,15 +1,18 @@
 # MXNMT: MXNet based Neural Machine Translation
 
-This is an implementation seq2seq with attention for neural machine translation with MXNet.
+This is an implementation of seq2seq with attention for neural machine translation with MXNet.
 
 ## Data
 
-The current code uses IWSLT 2009 Chinese-English corpus as training, development and test data. Please request this data set or use other available parallel corpus. Data statistics,
+The current code uses IWSLT 2009 Chinese-English corpus as training, development and test data. Please request this data set or **use other available parallel corpus**. Data statistics,
 
 | training | dev | test |
 |----------|-----|------|
 | 81819    | 446 | 504  |
 
+## Attention
+* This code does work with the latest mxnet. I made a new version with improved performance in the [next](https://github.com/magic282/MXNMT/tree/next) branch. However, this branch is not complete since it lacks the decode part. **I will really appreciate that if you can contribute to this branch.** Also, I ***strongly*** recommend to use this commit (138344683e65c87af20250e3f4cdcc5a72ac3cc5) of mxnet.
+* The author cannot distribute this dataset. **Any email requesting this dataset to the code author will not be replied.**
 
 ### Dev/Test Data Format
 The reference number of IWSLT 2009 Ch-En is 7, for example:
