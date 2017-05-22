@@ -2,12 +2,11 @@ import mxnet as mx
 
 
 class BasicAttention:
-    def __init__(self, batch_size, seq_len, attend_dim, state_dim):
+    def __init__(self, batch_size,  attend_dim, state_dim):
         self.e_weight_W = mx.sym.Variable('energy_W_weight', shape=(state_dim, state_dim))
         self.e_weight_U = mx.sym.Variable('energy_U_weight', shape=(attend_dim, state_dim))
         self.e_weight_v = mx.sym.Variable('energy_v_bias', shape=(state_dim, 1))
         self.batch_size = batch_size
-        self.seq_len = seq_len
         self.attend_dim = attend_dim
         self.state_dim = state_dim
         self.pre_compute_buf = {}
@@ -29,9 +28,10 @@ class BasicAttention:
         :param use_masking: boolean
         :return:
         '''
+        seq_len = len(attended)
         energy_all = []
         pre_compute = mx.sym.dot(state, self.e_weight_W, name='_energy_0')
-        for idx in range(self.seq_len):
+        for idx in range(seq_len):
             h = attended[idx]  # (batch, attend_dim)
             energy = pre_compute + mx.sym.dot(h, self.e_weight_U,
                                               name='_energy_1_{0:03d}'.format(idx))  # (batch, state_dim)
@@ -46,7 +46,7 @@ class BasicAttention:
         all_energy = mx.sym.Concat(*energy_all, dim=1, name='_all_energy_1')  # (batch, seq_len)
 
         alpha = mx.sym.SoftmaxActivation(all_energy, name='_alpha_1')  # (batch, seq_len)
-        alpha = mx.sym.Reshape(data=alpha, shape=(self.batch_size, self.seq_len, 1),
+        alpha = mx.sym.Reshape(data=alpha, shape=(self.batch_size, seq_len, 1),
                                name='_alpha_2')  # (batch, seq_len, 1)
 
         weighted_attended = mx.sym.broadcast_mul(alpha, concat_attended,

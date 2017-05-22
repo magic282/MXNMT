@@ -122,7 +122,8 @@ class MaskedBucketSentenceIter(mx.io.DataIter):
                  source_data_name='source', source_mask_name='source_mask',
                  target_data_name='target', target_mask_name='target_mask',
                  label_name='target_softmax_label',
-                 seperate_char=' <eos> ', text2id=None, read_content=None, max_read_sample=sys.maxsize):
+                 text2id=None, read_content=None,
+                 max_read_sample=sys.maxsize):
         super(MaskedBucketSentenceIter, self).__init__()
 
         if text2id is None:
@@ -133,20 +134,15 @@ class MaskedBucketSentenceIter(mx.io.DataIter):
             self.read_content = default_read_content
         else:
             self.read_content = read_content
+
         source_sentences = self.read_content(source_path, max_read_sample)
-        # source_sentences = source_content.split(seperate_char)
-
         target_sentences = self.read_content(target_path, max_read_sample)
-        # target_sentences = target_content.split(seperate_char)
-
         assert len(source_sentences) == len(target_sentences)
 
-        self.source_vocab_size = len(source_vocab)
-        self.target_vocab_size = len(target_vocab)
+        self.batch_size = batch_size
         self.source_data_name = source_data_name
         self.target_data_name = target_data_name
         self.label_name = label_name
-
         self.source_mask_name = source_mask_name
         self.target_mask_name = target_mask_name
 
@@ -159,8 +155,6 @@ class MaskedBucketSentenceIter(mx.io.DataIter):
         self.target_mask_data = [[] for _ in buckets]
 
         # pre-allocate with the largest bucket for better memory sharing
-
-
         num_of_data = len(source_sentences)
         for i in range(num_of_data):
             source = source_sentences[i]
@@ -184,7 +178,7 @@ class MaskedBucketSentenceIter(mx.io.DataIter):
         label_data_clean = []
         buckets_clean = []
         for i in range(len(self.source_data)):
-            if len(self.source_data[i]) >= batch_size:
+            if len(self.source_data[i]) > 0:
                 source_data_clean.append(self.source_data[i])
                 target_data_clean.append(self.target_data[i])
                 label_data_clean.append(self.label_data[i])
@@ -230,7 +224,6 @@ class MaskedBucketSentenceIter(mx.io.DataIter):
             total_count += size
         print('Total: {0} ({1}) in {2} buckets'.format(total_count, num_of_data, len(self.buckets)))
 
-        self.batch_size = batch_size
         self.make_data_iter_plan()
 
         self.source_init_states = source_init_states
@@ -264,7 +257,7 @@ class MaskedBucketSentenceIter(mx.io.DataIter):
 
         self.bucket_plan = bucket_plan
         self.bucket_idx_all = bucket_idx_all
-        self.bucket_curr_idx = [0 for x in self.source_data]
+        self.bucket_curr_idx = [0 for _ in self.source_data]
 
         self.source_data_buffer = []
         self.source_mask_data_buffer = []
@@ -342,4 +335,4 @@ class MaskedBucketSentenceIter(mx.io.DataIter):
 
     def reset(self):
         self.iterIndex = 0
-        self.bucket_curr_idx = [0 for x in self.source_data]
+        self.bucket_curr_idx = [0 for _ in self.source_data]

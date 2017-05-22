@@ -48,7 +48,7 @@ def load_vocab(path, special=None):
                 continue
             if word == '\n' or word == ' ':
                 continue
-            if not word in vocab:
+            if word not in vocab:
                 vocab[word] = idx
     return vocab
 

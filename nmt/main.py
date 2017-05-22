@@ -3,7 +3,6 @@ Encoder-Decoder with attention for neural machine translation
 
 """
 
-
 import sys
 
 if sys.version_info[0] < 3:

@@ -22,6 +22,26 @@ def MyCrossEntropy(label, pred):
     return loss / label.size
 
 
+def MyMakeLoss(label, pred):
+    # label = label.T.reshape((-1,))
+    # loss = 0.
+    # for i in range(pred.shape[0]):
+    #     loss += -np.log(max(1e-10, pred[i][int(label[i])]))
+    return pred[0]
+
+
+def MyCrossEntropy_mask(label, pred):
+    label = label.T.reshape((-1,))
+    loss = 0.
+    mask_count = 0
+    for i in range(pred.shape[0]):
+        if int(label[i]) == 0:
+            mask_count += 1
+            continue
+        loss += -np.log(max(1e-10, pred[i][int(label[i])]))
+    return loss / (label.size - mask_count)
+
+
 def get_bleu(gold, test):
     import subprocess
     bleu_computer = r"CompBleu_new.exe"

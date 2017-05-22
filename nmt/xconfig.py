@@ -34,11 +34,11 @@ test_gold = os.path.join(data_root, 'test', 'IWSLT.test.txt')
 bleu_ref_number = 7
 
 # model parameter
-batch_size = 128
-bucket_stride = 10
+batch_size = 64
+bucket_stride = 8
 buckets = []
-for i in range(10, 70, bucket_stride):
-    for j in range(10, 70, bucket_stride):
+for i in range(8, 128, bucket_stride):
+    for j in range(8, 128, bucket_stride):
         buckets.append((i, j))
 num_hidden = 512  # hidden unit in LSTM cell
 num_embed = 512  # embedding dimension
@@ -76,7 +76,7 @@ greedy_batch_size = 32
 max_decode_len = 15
 
 # resume training
-use_resuming = True
+use_resuming = False
 resume_model_prefix = os.path.join(model_root, "checkpoint_model")
 resume_model_number = 0
 
