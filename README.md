@@ -2,6 +2,10 @@
 
 This is an implementation of seq2seq with attention for neural machine translation with MXNet.
 
+## Warning:
+This repo is no longer maintained.
+I recommend https://github.com/magic282/PyTorch_seq2seq
+
 ## Data
 
 The current code uses IWSLT 2009 Chinese-English corpus as training, development and test data. Please request this data set or **use other available parallel corpus**. Data statistics,
